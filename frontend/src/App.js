@@ -1,3 +1,4 @@
+// default js file (add code change the name whatever )
 import React from 'react'
 
 function App() {
@@ -7,5 +8,4 @@ function App() {
     </div>
   )
 }
-
 export default App
