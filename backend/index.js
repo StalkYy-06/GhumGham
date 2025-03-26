@@ -1,31 +1,18 @@
+require("dotenv").config();
 const express = require("express");
-const mysql = require("mysql2");
+const cors = require("cors")
+const db = require("./config/db");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
-// MySQL Database Connection
-const db = mysql.createConnection({
-  host: "localhost",     // Change if using a remote DB
-  user: "root",          // Your MySQL username
-  password: "", // Your MySQL password
-  database: "ghumnajamdb" // Your database name
-});
-
-db.connect(err => {
-  if (err) {
-    console.error("Database connection failed:", err);
-  } else {
-    console.log("MySQL Database Connected");
-  }
-});
-
-// Simple Route
+// Root Route
 app.get("/", (req, res) => {
-  res.send("Stalkyy Testes!!!");
+  res.send("Test Passes!!!");
 });
 
 // Example: Fetch all users from 'users' table
