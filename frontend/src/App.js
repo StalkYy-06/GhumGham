@@ -1,11 +1,34 @@
 // default js file (add code change the name whatever )
-import React from 'react'
+// import React from 'react'
+
+// function App() {
+//   return (
+//     <div>
+
+//     </div>
+//   )
+// }
+// export default App
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Login from './Login'; // Ensure Login.js is in the same folder as App.js
+import Register from './Register'; // Ensure Register.js is in the same folder as App.js
 
 function App() {
   return (
-    <div>
+    <Router>
+      {/* Navigation Links */}
+      <nav>
+        <Link to="/">Login</Link> | <Link to="/register">Register</Link>
+      </nav>
 
-    </div>
-  )
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
-export default App
+
+export default App;
