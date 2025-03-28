@@ -81,11 +81,13 @@ input {
 .divider {
   margin: 16px 0;
   display: flex;
+  justify-content: center; 
   align-items: center;
 }
 
 .divider span {
   padding: 0 10px;
+  text-align: center; 
 }
 
 .forgot-password {
