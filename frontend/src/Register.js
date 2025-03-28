@@ -48,7 +48,7 @@ const Register = () => {
           </div>
           <button type="submit" className="primary-btn">Register</button>
           <div className="divider">
-            <span>Or</span>
+            <span>or</span>
           </div>
           <button className="google-btn">
             <img src="/google-icon.png" alt="Google Icon" /> Continue with Google

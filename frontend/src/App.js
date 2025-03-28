@@ -18,9 +18,9 @@ function App() {
   return (
     <Router>
       {/* Navigation Links */}
-      <nav>
-        <Link to="/">Login</Link> | <Link to="/register">Register</Link>
-      </nav>
+      <nav style={{ position: 'absolute', top: '20px', right: '20px' }}>
+  <Link to="/">Login</Link> | <Link to="/register">Register</Link>
+</nav>
 
       {/* Routes */}
       <Routes>
