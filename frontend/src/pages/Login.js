@@ -18,7 +18,7 @@ const Login = () => {
             </Link>
             <div className="form-box">
 
-                <h2>Sign up to Ghumnajam</h2>
+                <h2>Sign up to <br></br>Ghumnajam</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input
