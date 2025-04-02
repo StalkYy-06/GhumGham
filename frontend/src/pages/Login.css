@@ -1,0 +1,117 @@
+/* General Styling */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-box {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.logo_l {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 50px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.input-hint {
+  font-size: 12px;
+  color: gray;
+  margin-top: 4px;
+  display: block;
+}
+
+.primary-btn {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-color: #333;
+}
+
+.google-btn {
+  width: 100%;
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-btn img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.divider {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider span {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.forgot-password {
+  color: #888;
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+  color: darkblue;
+}
+.terms,
+.recaptcha {
+  font-size: 12px;
+  color: gray;
+}
+
+span {
+  color: red;
+  cursor: pointer;
+}
