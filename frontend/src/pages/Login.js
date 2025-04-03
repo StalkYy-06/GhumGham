@@ -1,14 +1,44 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    // Handle local signup submission
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log({ email, password });
+        setError('');
+
+        try {
+            const response = await fetch('http://localhost:5000/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+                credentials: 'include'
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Login Failed");
+            }
+
+            console.log('Login Successful:', data);
+            navigate('/');
+        } catch (err) {
+            setError(err.message);
+            console.error('Login error:', err);
+        }
+    };
+
+    const handleGoogleLogin = () => {
+        window.location.href = "http://localhost:5000/auth/google";
     };
 
     return (
@@ -43,7 +73,7 @@ const Login = () => {
                     <div className="divider">
                         <span>or</span>
                     </div>
-                    <button className="google-btn">
+                    <button type="button" className="google-btn" onClick={handleGoogleLogin}>
                         <img src="google-icon.png" alt="Google Icon" /> Continue with Google
                     </button>
                 </form>

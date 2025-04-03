@@ -28,8 +28,8 @@ router.post("/register", async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         db.query(
-            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)", 
-            [name, email, hashedPassword], 
+            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+            [name, email, hashedPassword],
             (err, results) => {
                 if (err) {
                     console.error("Error registering user:", err);
@@ -42,6 +42,45 @@ router.post("/register", async (req, res) => {
         console.error("Hashing error:", error);
         res.status(500).json({ error: "Server error" });
     }
+});
+
+router.get("/login", (req, res) => {
+    const { email, password } = req.body;
+
+    //Validate input
+    if (!email || !password) {
+        return res.status(400).json({ error: "Email and password are Required" });
+    }
+
+    //Query the database to find the user by email
+    db.query("SELECT * FROM users Where email=?", [email], async (err, results) => {
+        if (err) {
+            console.error("Database Error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+
+        if (results.length === 0) {
+            return res.status(401).json({ error: "Invalid email or password" });
+        }
+
+        const user = results[0];
+
+        //check password within the database
+        try {
+            const match = await bcrypt.compare(password, user.password);
+            if (!match) {
+                return res.status(401).json({ error: "Invalid email or password" });
+            }
+
+            //Store user in session on successful login 
+            req.session.user = { id: user.id, name: user.name, email: user.email };
+            res.json({ message: "Login successful" });
+        } catch (error) {
+            console.error("Password comparison error:", error);
+            res.status(500).json({ error: "Server Error" });
+        }
+
+    });
 });
 
 // Get a single user by ID

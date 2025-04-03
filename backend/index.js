@@ -12,12 +12,16 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: { secure: false },
   })
 );
 app.use(passport.initialize());
@@ -34,13 +38,15 @@ app.use("/api/destinations", require(("./routes/destinations")));
 app.use("/api/profile", require(("./routes/profiles")));
 
 //Passport authentication Routes
-app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+app.get("/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    res.redirect("/profile");
+    res.redirect("https://localhost:3000/profile");
   }
 );
 
