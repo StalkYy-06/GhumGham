@@ -5,6 +5,34 @@ const bcrypt = require("bcrypt");
 
 console.log("Users route loaded");
 
+// Email and Password validation regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const validatePassword = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const noSpaces = !/\s/.test(password);
+
+    if (password.length < minLength) {
+        return "Password must be at least 8 characters long";
+    }
+    if (!hasUpperCase) {
+        return "Password must include at least one uppercase letter";
+    }
+    if (!hasLowerCase) {
+        return "Password must include at least one lowercase letter";
+    }
+    if (!hasDigit) {
+        return "Password must include at least one number";
+    }
+    if (!noSpaces) {
+        return "Password cannot contain spaces";
+    }
+    return null; // Password is valid
+};
+
 // Get all users
 router.get("/", (req, res) => {
     db.query("SELECT id, name, email FROM users", (err, results) => {
@@ -20,12 +48,42 @@ router.get("/", (req, res) => {
 router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
 
-    // Check for missing fields
-    if (!name || !email || !password) {
-        return res.status(400).json({ error: "All fields are required" });
+    // Validate email format
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: "Invalid Email" });
+    }
+
+    // Validate password format
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+        return res.status(400).json({ error: passwordError });
     }
 
     try {
+
+        //Checking for Username
+        db.query("SELECT * FROM users WHERE name=?", [name], async (err, results) => {
+            if (err) {
+                return res.status(500).json({ error: "Database error" });
+            }
+
+            if (results.length > 0) {
+                return res.status(400).json({ error: "Username Already Exists" });
+            }
+        });
+
+        //Checking for email
+        db.query("SELECT * FROM users WHERE email=?", [email], async (err, results) => {
+            if (err) {
+                return res.status(500).json({ error: "Database error" });
+            }
+
+            if (results.length > 0) {
+                return res.status(400).json({ error: "Email Already Registered" });
+            }
+        });
+
+
         // Hash the password before storing
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -49,11 +107,6 @@ router.post("/register", async (req, res) => {
 //login new user
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
-
-    //Validate input
-    if (!email || !password) {
-        return res.status(400).json({ error: "Email and password are Required" });
-    }
 
     //Query the database to find the user by email
     db.query("SELECT * FROM users Where email=?", [email], async (err, results) => {
