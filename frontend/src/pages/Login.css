@@ -31,6 +31,7 @@ h2 {
 
 .input-group {
   margin-bottom: 12px;
+  position: relative;
 }
 
 input {
@@ -43,11 +44,55 @@ input {
   font-size: 16px;
 }
 
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group img {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+/* Left-aligned icons */
+.input-group .mail,
+.input-group .lock {
+  left: 0.75rem;
+  pointer-events: none;
+}
+
+.input-group .off,
+.input-group .on {
+  left: auto;
+  right: 0.75rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .input-hint {
   font-size: 12px;
   color: gray;
   margin-top: 4px;
   display: block;
+}
+.input-error {
+  border: 1px solid red;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .primary-btn {

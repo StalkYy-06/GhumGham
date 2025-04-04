@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../config/db");
 const bcrypt = require("bcrypt");
 
+console.log("Users route loaded");
+
 // Get all users
 router.get("/", (req, res) => {
     db.query("SELECT id, name, email FROM users", (err, results) => {
@@ -44,7 +46,8 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.get("/login", (req, res) => {
+//login new user
+router.post("/login", (req, res) => {
     const { email, password } = req.body;
 
     //Validate input
@@ -60,7 +63,7 @@ router.get("/login", (req, res) => {
         }
 
         if (results.length === 0) {
-            return res.status(401).json({ error: "Invalid email or password" });
+            return res.status(401).json({ error: "Invalid Email or Password" });
         }
 
         const user = results[0];

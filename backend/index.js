@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 //Modular Routes
-app.use("/api/users", require("./routes/users.js"));
+app.use("/api/users", require("./routes/users"));
 app.use("/api/destinations", require(("./routes/destinations")));
 app.use("/api/profile", require(("./routes/profiles")));
 
@@ -46,9 +46,14 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    res.redirect("https://localhost:3000/profile");
+    res.redirect("http://localhost:3000/");
   }
 );
+
+// Catch-all for debugging
+app.use((req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
 
 // Start Server
 app.listen(PORT, () => {

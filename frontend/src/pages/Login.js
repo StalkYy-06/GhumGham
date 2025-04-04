@@ -7,14 +7,26 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
-    // Handle local signup submission
+    // Handle local login submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setEmailError(false);
+        setPasswordError(false);
+
+        if (!email || !password) {
+            if (!email) setEmailError(true);
+            if (!password) setPasswordError(true);
+            setError('Please fill in all fields');
+            return;
+        }
 
         try {
-            const response = await fetch('http://localhost:5000/api/user/login', {
+            const response = await fetch('http://localhost:5000/api/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,11 +34,21 @@ const Login = () => {
                 body: JSON.stringify({ email, password }),
                 credentials: 'include'
             });
+            //check if response is JSON
+            const contentType = response.headers.get('Content-Type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Server returned an invalid response');
+            }
 
             const data = await response.json();
+            console.log("Response data:", data);
 
             if (!response.ok) {
-                throw new Error(data.error || "Login Failed");
+                if (data.error === 'Invalid Email or password') {
+                    setEmailError(true);
+                    setPasswordError(true);
+                }
+                throw new Error(data.error || 'Login failed');
             }
 
             console.log('Login Successful:', data);
@@ -37,6 +59,7 @@ const Login = () => {
         }
     };
 
+    //handle google login
     const handleGoogleLogin = () => {
         window.location.href = "http://localhost:5000/auth/google";
     };
@@ -48,28 +71,46 @@ const Login = () => {
             </Link>
             <div className="form-box">
 
-                <h2>Sign up to <br></br>Ghumnajam</h2>
+                <h2>Log in to <br></br>Ghumnajam</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input
-                            type="email"
+                            type="text"
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            required
+                            className={emailError ? 'input-error' : ''}
                         />
+                        <img src="mail.png" alt="mail" className="mail" />
                     </div>
                     <div className="input-group">
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required
+                            className={passwordError ? 'input-error' : ''}
                         />
+                        <img src="lock.png" alt="lock" className="lock" />
+
+                        {showPassword ? (
+                            <img src="v_on.png"
+                                alt="v_on"
+                                className="on"
+                                onClick={() => setShowPassword(false)}
+                            />
+                        ) : (
+                            <img src="v_off.png"
+                                alt="v_off"
+                                className="off"
+                                onClick={() => setShowPassword(true)}
+                            />
+                        )}
+
                     </div>
+                    {error && <p className="error">{error}</p>}
                     <p className="forgot-password">Forgot password?</p>
-                    <button type="submit" className="primary-btn">Sign up</button>
+                    <button type="submit" className="primary-btn">Log in</button>
                     <div className="divider">
                         <span>or</span>
                     </div>
