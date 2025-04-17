@@ -1,6 +1,4 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaXTwitter } from 'react-icons/fa6';
-import { MdLocationOn, MdPhone, MdEmail } from 'react-icons/md';
 import './footerstyles.css';
 
 function Footer() {
@@ -12,24 +10,22 @@ function Footer() {
                         <h3>Follow Us</h3>
                         <div className="footer-icons">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                <FaInstagram className="footer-icon" />
+                                <img src='/insta.png' alt='instagram logo' className='logo_ig' />
                             </a>
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                <FaFacebook className="footer-icon" />
+                                <img src='/facebook.png' alt='facebook logo' className='logo_fb' />
                             </a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                                <FaXTwitter className="footer-icon" />
+                                <img src='/twitter.png' alt='twitter logo' className='logo_X' />
                             </a>
                         </div>
                     </div>
-                    <div className="footer-logo">
-                        <img src="/ghumnajam-logo.png" alt="Ghumnajam Logo" />
-                    </div>
+
                     <div className="footer-section contact-info">
                         <h3>Contact Us</h3>
-                        <p><MdLocationOn className="footer-icon" /> 123 Street, Naxal, Kathmandu</p>
-                        <p><MdPhone className="footer-icon" /> +977 9866657981</p>
-                        <p><MdEmail className="footer-icon" /> ghumnaJam25@gmail.com</p>
+                        <p> 123 Street, Naxal, Kathmandu</p>
+                        <p> +977 9866657981</p>
+                        <p> ghumnajam2025@gmail.com</p>
                     </div>
                 </div>
                 <div className="footer-bottom">© 2025 Ghumnajam LLC. All rights reserved.</div>
