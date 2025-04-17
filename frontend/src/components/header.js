@@ -18,7 +18,7 @@ function Header() {
                 <a href="/contact">Contact</a>
             </nav>
             <Link to="/Login">
-                <button className="sign-in-button">Sign in</button>
+                <button className="sign-in-button">Log in</button>
             </Link>
 
         </header>

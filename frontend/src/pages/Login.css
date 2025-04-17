@@ -30,7 +30,6 @@ h2 {
 }
 
 .input-group {
-  margin-bottom: 12px;
   position: relative;
 }
 
@@ -134,16 +133,18 @@ input {
 }
 
 .forgot-password {
+  text-decoration: none;
   color: #888;
   font-size: 14px;
   text-align: right;
   margin-bottom: 12px;
   cursor: pointer;
 }
+
 .forgot-password:hover {
-  text-decoration: underline;
-  color: darkblue;
+  color: blue;
 }
+
 .terms,
 .recaptcha {
   font-size: 12px;

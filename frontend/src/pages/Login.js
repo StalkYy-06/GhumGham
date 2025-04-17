@@ -109,7 +109,11 @@ const Login = () => {
 
                     </div>
                     {error && <p className="error">{error}</p>}
-                    <p className="forgot-password">Forgot password?</p>
+                    <div className='forgot-password'>
+                        <Link to="/forget-password">
+                            <p>Forgot password?</p>
+                        </Link>
+                    </div>
                     <button type="submit" className="primary-btn">Log in</button>
                     <div className="divider">
                         <span>or</span>
@@ -118,11 +122,13 @@ const Login = () => {
                         <img src="google-icon.png" alt="Google Icon" /> Continue with Google
                     </button>
                 </form>
+
+                <p className="register">
+                    New to Ghumnajam? <Link to="/register">Register.</Link>
+                </p>
+
                 <p className="terms">
                     By proceeding, you agree to our <span>Terms of Use</span> and confirm you have read our <span>Privacy and Cookie Statement</span>.
-                </p>
-                <p className="recaptcha">
-                    This site is protected by reCAPTCHA and the Google <span>Privacy Policy</span> and <span>Terms of Service</span> apply.
                 </p>
             </div>
         </div>

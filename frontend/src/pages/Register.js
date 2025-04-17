@@ -136,7 +136,7 @@ const Register = () => {
           <div className="divider">
             <span>or</span>
           </div>
-          <button className="google-btn">
+          <button className="google-btn" onClick={handleGoogleLogin}>
             <img src="/google-icon.png" alt="Google Icon" /> Continue with Google
           </button>
         </form>
