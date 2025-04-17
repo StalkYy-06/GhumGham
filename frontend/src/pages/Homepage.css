@@ -2,22 +2,68 @@
   font-family: sans-serif;
 }
 
+/* Navigation bar responsiveness */
+.navbar {
+  display: flex;
+  flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+  justify-content: space-between; /* Spread items out */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  box-sizing: border-box;
+  overflow-x: auto; /* Prevent cutting off content */
+}
+
+/* Nav links styling */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 8px 12px;
+  white-space: nowrap; /* Prevent breaking words */
+}
+
+/* Optional: Stack vertically on very small screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Hero section responsive */
 .hero {
   background-image: url(./images/muktinath.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover; /* Ensure the image covers the entire section */
   height: 690px; /* Adjust height as needed */
-  width: 1490px;
+  width: 100%; /* Make width responsive */
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
+  padding: 20px; /* Add padding for better spacing */
+  box-sizing: border-box;
 }
 
+/* Make heading responsive */
 .hero h1 {
   font-size: 3em;
   margin-bottom: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    height: 400px; /* Reduce height for smaller screens */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .hero h1 {
+    font-size: 2em; /* Decrease font size for better fit */
+  }
 }
 
 .tours {
@@ -25,7 +71,19 @@
   text-align: center;
 }
 
+/* Make tours heading responsive */
 .tours h2 {
   font-size: 2em;
   margin-bottom: 30px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .tours {
+    padding: 20px;
+  }
+
+  .tours h2 {
+    font-size: 1.5em; /* Reduce font size */
+  }
 }
