@@ -2,39 +2,107 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 1rem 2rem;
   background-color: white;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .logo {
-  width: 100px; /* Adjust size as needed */
-  height: 50px;
-  margin-right: 40px;
+  width: clamp(80px, 10vw, 100px);
+  height: auto;
+  aspect-ratio: 2 / 1;
 }
 
 .logo-text {
-  font-size: 0.8em;
+  font-size: clamp(0.7em, 2vw, 0.8em);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
 }
 
 .nav {
-  position: relative;
-  margin-right: -400px;
+  display: flex;
+  gap: 2rem;
+  margin-right: 5rem;
 }
+
 .nav a {
-  margin-left: 40px;
   text-decoration: none;
   color: #333;
+  font-size: clamp(0.9em, 2vw, 1em);
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #666;
 }
 
 .sign-in-button {
   background-color: black;
   color: white;
-  padding: 10px 20px;
+  padding: 0.5rem 1.5rem;
   border-radius: 20px;
+  border: none;
   cursor: pointer;
+  font-size: clamp(0.9em, 2vw, 1em);
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+  background-color: #333;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+    margin-right: 0;
+  }
+
+  .nav a {
+    margin: 0;
+  }
+
+  .sign-in-button {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .logo-text {
+    font-size: 0.7em;
+  }
 }
