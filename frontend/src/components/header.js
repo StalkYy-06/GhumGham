@@ -11,15 +11,17 @@ function Header() {
                 </Link>
                 <p className="logo-text">EXPLORE WITH EASE</p>
             </div>
-            <nav className="nav">
-                <a href="/about">About</a>
-                <a href="/countries">Countries</a>
-                <a href="/destinations">Destinations</a>
-                <a href="/contact">Contact</a>
-            </nav>
-            <Link to="/Login">
-                <button className="sign-in-button">Log in</button>
-            </Link>
+            <div className="nav-container">
+                <nav className="nav">
+                    <a href="/about">About</a>
+                    <a href="/countries">Countries</a>
+                    <a href="/destinations">Destinations</a>
+                    <a href="/contact">Contact</a>
+                </nav>
+                <Link to="/Login">
+                    <button className="sign-in-button">Log in</button>
+                </Link>
+            </div>
 
         </header>
     );
