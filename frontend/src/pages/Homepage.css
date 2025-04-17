@@ -1,0 +1,31 @@
+.homepage {
+  font-family: sans-serif;
+}
+
+.hero {
+  background-image: url(./images/muktinath.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 690px; /* Adjust height as needed */
+  width: 1490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.tours {
+  padding: 40px;
+  text-align: center;
+}
+
+.tours h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
