@@ -1,13 +1,9 @@
 const express = require("express");
-<<<<<<< Updated upstream
-const mysql = require("mysql2");
-=======
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 
 require("./config/passport");
->>>>>>> Stashed changes
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,18 +11,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 
-<<<<<<< Updated upstream
-// MySQL Database Connection
-const db = mysql.createConnection({
-  host: "localhost",     // Change if using a remote DB
-  user: "root",          // Your MySQL username
-  password: "", // Your MySQL password
-  database: "ghumnajamdb" // Your database name
-=======
 // Root Route
 app.get("/", (req, res) => {
   res.send("");
->>>>>>> Stashed changes
 });
 
 db.connect(err => {

@@ -56,8 +56,8 @@ router.post("/register", async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         db.query(
-            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)", 
-            [name, email, hashedPassword], 
+            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+            [name, email, hashedPassword],
             (err, results) => {
                 if (err) {
                     console.error("Error registering user:", err);
@@ -72,8 +72,6 @@ router.post("/register", async (req, res) => {
     }
 });
 
-<<<<<<< Updated upstream
-=======
 //login user
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
@@ -109,7 +107,6 @@ router.post("/login", (req, res) => {
     });
 });
 
->>>>>>> Stashed changes
 // Get a single user by ID
 router.get("/:id", (req, res) => {
     const userId = req.params.id;

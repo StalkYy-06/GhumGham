@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-// default js file (add code change the name whatever )
-import React from 'react'
-
-function App() {
-  return (
-    <div>
-
-    </div>
-  )
-=======
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Login from './pages/Login';
@@ -30,6 +19,5 @@ function App() {
       </Routes>
     </Router>
   );
->>>>>>> Stashed changes
 }
 export default App
