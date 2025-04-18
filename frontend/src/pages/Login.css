@@ -121,7 +121,7 @@ input {
 }
 
 .divider {
-  margin: 16px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +134,7 @@ input {
 
 .forgot-password {
   text-decoration: none;
-  color: #888;
+  color: #111;
   font-size: 14px;
   text-align: right;
   margin-bottom: 12px;
@@ -142,7 +142,7 @@ input {
 }
 
 .forgot-password:hover {
-  color: blue;
+  color: #888;
 }
 
 .terms,
@@ -154,4 +154,14 @@ input {
 span {
   color: red;
   cursor: pointer;
+}
+
+.register {
+  color: #888;
+  font-size: 14px;
+  margin: 12px;
+}
+
+.register span:hover {
+  color: #666;
 }

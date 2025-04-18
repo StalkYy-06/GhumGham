@@ -124,7 +124,7 @@ const Login = () => {
                 </form>
 
                 <p className="register">
-                    New to Ghumnajam? <Link to="/register">Register.</Link>
+                    New to Ghumnajam? <span><Link to="/register">Register.</Link></span>
                 </p>
 
                 <p className="terms">
