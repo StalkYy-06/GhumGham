@@ -12,6 +12,7 @@ passport.use(
             callbackURL: process.env.CALLBACK_URL, // Redirect URL after Google login
         },
         (accessToken, refreshToken, profile, done) => {
+            console.log("Google profile received:", profile.id, profile.displayName);
             db.query(
                 "SELECT * FROM users WHERE google_id = ?",
                 [profile.id],
@@ -36,7 +37,7 @@ passport.use(
                                 if (err) {
                                     return done(err);
                                 }
-                                newUser.id = result.insertId;
+                                newUser.id = results.insertId;
                                 return done(null, newUser);
                             }
                         );
