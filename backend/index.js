@@ -1,4 +1,7 @@
+require("./config/user");
 require("dotenv").config();
+require("./config/password_reset");
+
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
@@ -21,11 +24,18 @@ app.use(
     secret: process.env.SESSION_SECRET || "your_session_secret",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false },
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000
+    },
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Serve static files for uploads
+app.use('/uploads', express.static('./public/uploads'));
 
 // Database Connection
 db.connect(err => {
@@ -53,8 +63,9 @@ app.get("/auth/google",
 );
 app.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
+  passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
+    req.session.user = req.user;
     res.redirect("http://localhost:3000/");
   }
 );
