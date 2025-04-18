@@ -1,3 +1,4 @@
+//Landing Page for site
 import React, { useState, useEffect } from 'react';
 import './Homepage.css';
 import Footer from '../components/footer.js';
