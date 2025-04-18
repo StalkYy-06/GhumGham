@@ -1,5 +1,5 @@
 //Landing Page for site
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Homepage.css';
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
@@ -9,7 +9,9 @@ import anna from './images/anna.jpg';
 import background from './images/background.jpg';
 import backgroundtwo from './images/background2.jpg';
 import backgroundthree from './images/background3.jpg';
-import { Link } from 'react-router-dom';  // Importing Link from react-router-dom
+
+import { AuthContext } from '../context/AuthContext';
+import { Link, useLocation } from 'react-router-dom';
 
 // Hero Component with dynamic background change
 function Hero() {
@@ -94,6 +96,29 @@ function Tours() {
 
 // Homepage Component
 function Homepage() {
+  const { login } = useContext(AuthContext);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('auth') === 'success') {
+      const fetchUser = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/api/profiles', {
+            credentials: 'include',
+          });
+          if (response.ok) {
+            const userData = await response.json();
+            login(userData.user);
+          }
+        } catch (err) {
+          console.error('Google OAuth session check failed:', err);
+        }
+      };
+      fetchUser();
+    }
+  }, [location, login]);
+
   return (
     <div className="homepage">
       <Header />

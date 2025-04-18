@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 require("dotenv").config();
+const multer = require('multer');
+const path = require('path');
 
 // Get all users
 router.get("/", (req, res) => {
@@ -211,6 +213,126 @@ router.post("/reset-password", async (req, res) => {
         res.json({ message: "Password reset successfully" });
     } catch (error) {
         console.error("Reset password error:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+//Logout
+router.post("/logout", (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            console.error("Logout error:", err);
+            return res.status(500).json({ error: "Logout failed" });
+        }
+        res.json({ message: "Logged out successfully" });
+    });
+});
+
+// Update profile
+router.put("/update", async (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Not authenticated" });
+    }
+
+    const { name, email, bio } = req.body;
+    const userId = req.user.id;
+
+    // Validate inputs
+    if (!name || !email) {
+        return res.status(400).json({ error: "Name and email are required" });
+    }
+
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: "Invalid email format" });
+    }
+
+    try {
+        // Check if email is taken by another user
+        const existingUser = await query("SELECT * FROM users WHERE email = ? AND id != ?", [email, userId]);
+        if (existingUser.length > 0) {
+            return res.status(400).json({ error: "Email already in use" });
+        }
+
+        // Update user
+        await query(
+            "UPDATE users SET name = ?, email = ?, bio = ? WHERE id = ?",
+            [name, email, bio || null, userId]
+        );
+        res.json({ message: "Profile updated successfully" });
+    } catch (error) {
+        console.error("Profile update error:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+//delete profile
+router.delete("/delete", async (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Not authenticated" });
+    }
+
+    const userId = req.user.id;
+
+    try {
+        await query("DELETE FROM users WHERE id = ?", [userId]);
+        req.session.destroy();
+        res.json({ message: "Profile deleted successfully" });
+    } catch (error) {
+        console.error("Profile delete error:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads/');
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (allowedTypes.includes(file.mimetype)) {
+        cb(null, true);
+    } else {
+        cb(new Error('Only JPEG, PNG, and GIF images are allowed'), false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 2 * 1024 * 1024 }, // 2MB limit
+    fileFilter: fileFilter
+});
+
+// Avatar upload
+router.post("/upload-avatar", upload.single('avatar'), async (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Not authenticated" });
+    }
+    if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    const avatarUrl = `/uploads/${req.file.filename}`;
+    try {
+        db.query(
+            "UPDATE users SET avatar_url = ? WHERE id = ?",
+            [avatarUrl, req.user.id],
+            (err) => {
+                if (err) {
+                    console.error("Database error updating avatar:", err);
+                    return res.status(500).json({ error: "Database error" });
+                }
+                res.json({ avatar_url: avatarUrl });
+            }
+        );
+    } catch (err) {
+        console.error("Avatar upload error:", err);
         res.status(500).json({ error: "Server error" });
     }
 });

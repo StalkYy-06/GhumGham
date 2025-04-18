@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -51,6 +53,7 @@ const Login = () => {
                 throw new Error(data.error || 'Login failed');
             }
 
+            login(data.user);
             console.log('Login Successful:', data);
             navigate('/');
         } catch (err) {

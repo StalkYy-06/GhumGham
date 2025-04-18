@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
+  const { login } = useContext(AuthContext);
   const [name, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -60,6 +62,18 @@ const Register = () => {
           setUserError(true);
         }
         throw new Error(data.error || 'Registration failed');
+      }
+
+      const loginResponse = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+        credentials: 'include'
+      });
+
+      if (loginResponse.ok) {
+        const userData = { name, email };
+        login(userData);
       }
 
       console.log('Registration Successful:', data);
