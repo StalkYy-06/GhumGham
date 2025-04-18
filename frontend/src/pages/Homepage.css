@@ -1,89 +1,191 @@
-.homepage {
-  font-family: sans-serif;
-}
-
-/* Navigation bar responsiveness */
-.navbar {
-  display: flex;
-  flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
-  justify-content: space-between; /* Spread items out */
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  overflow-x: auto; /* Prevent cutting off content */
 }
 
-/* Nav links styling */
-.navbar a {
-  color: white;
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
   text-decoration: none;
-  margin: 8px 12px;
-  white-space: nowrap; /* Prevent breaking words */
+  color: inherit;
 }
 
-/* Optional: Stack vertically on very small screens */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.homepage {
+  color: #333;
+  background-color: #ffffff;
 }
 
-/* Hero section responsive */
+/* Hero Section */
 .hero {
-  background-image: url(./images/muktinath.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; /* Ensure the image covers the entire section */
-  height: 690px; /* Adjust height as needed */
-  width: 100%; /* Make width responsive */
+  height: 90vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  text-align: center;
-  padding: 20px; /* Add padding for better spacing */
-  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
 }
 
-/* Make heading responsive */
-.hero h1 {
-  font-size: 3em;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .hero {
-    height: 400px; /* Reduce height for smaller screens */
-    padding: 10px; /* Adjust padding */
-  }
-
-  .hero h1 {
-    font-size: 2em; /* Decrease font size for better fit */
-  }
-}
-
-.tours {
-  padding: 40px;
-  text-align: center;
-}
-
-/* Make tours heading responsive */
-.tours h2 {
-  font-size: 2em;
+.hero-content p {
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
-/* Responsive adjustments for smaller screens */
+.cta-button {
+  background-color: #ff6b6b;
+  padding: 12px 30px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff4c4c;
+}
+
+/* Tours Section */
+.tours {
+  padding: 80px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.tours h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.tour-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tour-card {
+  background: #fff;
+  border-radius: 20px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tour-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tour-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.tour-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.tour-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Guides Section */
+.guides {
+  padding: 80px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.guides h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.guide-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.guide-card {
+  background: #f7f7f7;
+  border-radius: 20px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.guide-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.guide-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.guide-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.guide-card p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .tours {
-    padding: 20px;
+  .hero-content h1 {
+    font-size: 2.2rem;
   }
 
-  .tours h2 {
-    font-size: 1.5em; /* Reduce font size */
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .tour-cards,
+  .guide-cards {
+    flex-direction: column;
+    align-items: center;
   }
 }
