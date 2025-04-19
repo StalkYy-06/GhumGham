@@ -9,14 +9,13 @@ export const AuthProvider = ({ children }) => {
     const login = (userData) => {
         setIsAuthenticated(true);
         setUser(userData);
-        localStorage.setItem("userProfile", JSON.stringify(userData));
     };
 
     const logout = () => {
         setIsAuthenticated(false);
         setUser(null);
         localStorage.removeItem("userProfile");
-        fetch('http://localhost:5000/api/users/logout', {
+        fetch('http://localhost:5000/api/auth/logout', {
             method: 'POST',
             credentials: 'include',
         }).catch(err => console.error('Logout error:', err));

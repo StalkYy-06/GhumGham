@@ -28,7 +28,7 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/users/login', {
+            const response = await fetch('http://localhost:5000/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,6 +36,7 @@ const Login = () => {
                 body: JSON.stringify({ email, password }),
                 credentials: 'include'
             });
+
             //check if response is JSON
             const contentType = response.headers.get('Content-Type');
             if (!contentType || !contentType.includes('application/json')) {
@@ -49,6 +50,7 @@ const Login = () => {
                 if (data.error === 'Invalid Email or password') {
                     setEmailError(true);
                     setPasswordError(true);
+                    setError('Invalid email or password');
                 }
                 throw new Error(data.error || 'Login failed');
             }

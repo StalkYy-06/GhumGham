@@ -6,12 +6,20 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
+const winston = require("winston");
 const db = require("./config/db");
+const sessionStore = require("./config/sessionStore");
 
 require("./config/passport");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+const logger = winston.createLogger({
+  level: 'error',
+  format: winston.format.json(),
+  transports: [new winston.transports.File({ filename: 'error.log' })],
+});
 
 // Middleware
 app.use(express.json());
@@ -24,6 +32,7 @@ app.use(
     secret: process.env.SESSION_SECRET || "your_session_secret",
     resave: false,
     saveUninitialized: false,
+    store: sessionStore,
     cookie: {
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
@@ -56,6 +65,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", require("./routes/users"));
 app.use("/api/destinations", require("./routes/destinations"));
 app.use("/api/profiles", require("./routes/profiles"));
+app.use("/api/auth", require("./routes/auth"));
 
 // Google OAuth Routes
 app.get("/auth/google",
@@ -70,15 +80,9 @@ app.get(
   }
 );
 
-// 404 Handler
-app.use((req, res) => {
-  console.log(`Route not found: ${req.method} ${req.url}`);
-  res.status(404).json({ error: "Route not found" });
-});
-
 // Error Handler
 app.use((err, req, res, next) => {
-  console.error("Server error:", err);
+  logger.error(`${err.message} - ${req.method} ${req.url}`);
   res.status(500).json({ error: "Server error" });
 });
 

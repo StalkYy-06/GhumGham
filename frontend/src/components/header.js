@@ -4,41 +4,13 @@ import { AuthContext } from "../context/AuthContext";
 import './headerstyles.css';
 
 function Header() {
-    const context = useContext(AuthContext);
-    console.log("AuthContext in Header:", context); // Debug log
-
-    // Fallback if context is undefined
-    if (!context) {
-        return (
-            <header className="header">
-                <div className="logo-container">
-                    <Link to="/">
-                        <img src="/logo.png" alt="Ghumnajam Logo" className="logo" />
-                    </Link>
-                    <p className="logo-text">EXPLORE WITH EASE</p>
-                </div>
-                <div className="nav-container">
-                    <nav className="nav">
-                        <Link to="/about">About</Link>
-                        <Link to="/countries">Countries</Link>
-                        <Link to="/destinations">Destinations</Link>
-                        <Link to="/contact">Contact</Link>
-                    </nav>
-                    <Link to="/login">
-                        <button className="sign-in-button">Log in</button>
-                    </Link>
-                </div>
-            </header>
-        );
-    }
-
-    const { isAuthenticated, logout } = context;
+    const { isAuthenticated, logout } = useContext(AuthContext);
 
     return (
         <header className="header">
             <div className="logo-container">
                 <Link to="/">
-                    <img src="/logo.png" alt="Ghumnajam Logo" className="logo" />
+                    <img src={`${process.env.REACT_APP_API_URL}/logo.png`} alt="Ghumnajam Logo" className="logo" />
                 </Link>
                 <p className="logo-text">EXPLORE WITH EASE</p>
             </div>

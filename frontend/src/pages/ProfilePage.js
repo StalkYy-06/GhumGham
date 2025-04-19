@@ -99,7 +99,7 @@ function ProfilePage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name: profile.name,
-                    email: profile.name,
+                    email: profile.email,
                     bio: profile.bio,
                 }),
                 credentials: 'include',

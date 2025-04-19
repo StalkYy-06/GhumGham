@@ -31,7 +31,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/register', {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,14 +47,13 @@ const Register = () => {
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (!response.ok) {
 
         if (data.error === 'Username Already Exists') {
-          setEmailError(true);
+          setUserError(true);
         } else if (data.error === 'Invalid Email') {
-          setPasswordError(true);
+          setEmailError(true);
         } else if (data.error === 'Email Already Registered') {
           setEmailError(true);
         }
@@ -64,23 +63,12 @@ const Register = () => {
         throw new Error(data.error || 'Registration failed');
       }
 
-      const loginResponse = await fetch('http://localhost:5000/api/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-        credentials: 'include'
-      });
-
-      if (loginResponse.ok) {
-        const userData = { name, email };
-        login(userData);
-      }
-
+      login({ name, email });
+      navigate('/');
       console.log('Registration Successful:', data);
       navigate('/');
 
     } catch (err) {
-      setError(err.message);
       console.error('Registration error:', err);
     }
   };
