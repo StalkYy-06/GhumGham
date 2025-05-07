@@ -1,21 +1,15 @@
-const mysql = require("mysql2");
-require("dotenv").config();
+const mysql = require('mysql2/promise');
+require('dotenv').config();
 
-// Create MySQL database connection
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+// Create a connection pool
+const pool = mysql.createPool({
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'ghumnajam_db',
+    waitForConnections: true,
+    connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT) || 10,
+    queueLimit: parseInt(process.env.DB_QUEUE_LIMIT) || 0
 });
 
-// Connect to the database
-db.connect(err => {
-    if (err) {
-        console.error("Database connection failed: " + err.message);
-    } else {
-        console.log("Connected to MySQL Database.");
-    }
-});
-
-module.exports = db;
+module.exports = pool;

@@ -10,7 +10,7 @@ function Header() {
         <header className="header">
             <div className="logo-container">
                 <Link to="/">
-                    <img src={`${process.env.REACT_APP_API_URL}/logo.png`} alt="Ghumnajam Logo" className="logo" />
+                    <img src="/logo.png" alt="Ghumnajam Logo" className="logo" />
                 </Link>
                 <p className="logo-text">EXPLORE WITH EASE</p>
             </div>
