@@ -6,13 +6,19 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 require("dotenv").config();
 
-const query = (sql, params) => {
-    return new Promise((resolve, reject) => {
-        db.query(sql, params, (err, results) => {
-            if (err) reject(err);
-            else resolve(results);
-        });
-    });
+// Helper function for Promise-based queries
+const query = async (sql, params) => {
+    try {
+        const results = await db.query(sql, params);
+        console.log("Query results:", results); // Debug raw results
+        if (!Array.isArray(results)) {
+            throw new Error("Query did not return an array");
+        }
+        return results[0]; // Return results (first element of [results, fields])
+    } catch (err) {
+        console.error("Query error:", err);
+        throw err;
+    }
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,13 +71,24 @@ router.post("/register", async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        await query(
+        const result = await query(
             "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
             [name, email, hashedPassword]
         );
 
-        req.session.user = { name, email };
-        res.status(201).json({ message: "User registered successfully!" });
+        const userId = result.insertId;
+
+        const user = {
+            id: userId,
+            name,
+            email
+        };
+        req.session.user = user;
+
+        res.status(201).json({
+            message: "User registered successfully!",
+            user: user
+        });
     } catch (error) {
         console.error("Registration error:", error);
         res.status(500).json({ error: "Server error" });
@@ -93,8 +110,23 @@ router.post("/login", async (req, res) => {
             return res.status(401).json({ error: "Invalid email or password" });
         }
 
-        req.session.user = { id: user.id, name: user.name, email: user.email };
-        res.json({ message: "Login successful", user: { name: user.name, email: user.email } });
+        // Create a standardized user object for the session
+        const sessionUser = {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            bio: user.bio,
+            avatar_url: user.avatar_url
+        };
+
+        // Store user in session
+        req.session.user = sessionUser;
+
+        res.json({
+            message: "Login successful",
+            user: sessionUser
+        });
+
     } catch (error) {
         console.error("Login error:", error);
         res.status(500).json({ error: "Server error" });
@@ -107,6 +139,8 @@ router.post("/logout", (req, res) => {
             console.error("Logout error:", err);
             return res.status(500).json({ error: "Logout failed" });
         }
+
+        res.clearCookie('connect.sid');
         res.json({ message: "Logged out successfully" });
     });
 });
@@ -186,6 +220,8 @@ router.post("/reset-password", async (req, res) => {
         );
 
         if (tokens.length === 0) {
+            await connection.rollback();
+            connection.release();
             return res.status(400).json({ error: "Invalid or expired token" });
         }
 
@@ -202,6 +238,17 @@ router.post("/reset-password", async (req, res) => {
     } finally {
         connection.release();
     }
+});
+
+// Check if user is authenticated
+router.get("/check", (req, res) => {
+    if (req.session && req.session.user) {
+        return res.json({
+            isAuthenticated: true,
+            user: req.session.user
+        });
+    }
+    return res.json({ isAuthenticated: false });
 });
 
 module.exports = router;

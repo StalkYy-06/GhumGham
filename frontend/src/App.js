@@ -7,6 +7,7 @@ import ForgotPassword from './pages/forget-password';
 import ResetPassword from './pages/reset-password';
 import { AuthProvider } from './context/AuthContext';
 import ProfilePage from './pages/ProfilePage';
+import EditProfilePage from './pages/editProfile';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/forget-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/edit-profile" element={<EditProfilePage />} />
+
         </Routes>
       </Router>
     </AuthProvider>
