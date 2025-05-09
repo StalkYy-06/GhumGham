@@ -7,6 +7,9 @@ import ForgotPassword from './pages/forget-password';
 import ResetPassword from './pages/reset-password';
 import { AuthProvider } from './context/AuthContext';
 import ProfilePage from './pages/ProfilePage';
+import ItineraryPage1 from './components/ItineraryPage1';
+import ItineraryPage2 from './components/ItineraryPage2';
+import ItineraryPage3 from './components/ItineraryPage3';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/forget-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/itinerary" element={<ItineraryPage1 />} />
+          <Route path="/itinerary2" element={<ItineraryPage2 />} />
+          <Route path="/itinerary3" element={<ItineraryPage3 />} />
         </Routes>
       </Router>
     </AuthProvider>
