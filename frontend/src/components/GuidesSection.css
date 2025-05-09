@@ -1,0 +1,46 @@
+.guides-section {
+  padding: 60px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.guides-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.guide-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.view-all-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.view-all-button a:hover {
+  background-color: #333;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .guide-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

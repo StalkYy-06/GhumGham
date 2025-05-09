@@ -7,6 +7,8 @@ import ForgotPassword from './pages/forget-password';
 import ResetPassword from './pages/reset-password';
 import { AuthProvider } from './context/AuthContext';
 import ProfilePage from './pages/ProfilePage';
+import GuidesPage from './pages/GuidesPage';
+import GuideDetailsPage from './pages/GuideDetailsPage'; 
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/forget-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/guides" element={<GuidesPage />} />
+          <Route path="/guides/:id" element={<GuideDetailsPage />} /> {/* Add this line */}
         </Routes>
       </Router>
     </AuthProvider>

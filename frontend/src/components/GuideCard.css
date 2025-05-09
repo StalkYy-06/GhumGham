@@ -1,0 +1,71 @@
+.guide-card {
+  background: #f7f7f7;
+  border-radius: 15px;
+  width: 250px;
+  padding: 20px;
+
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.guide-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.guide-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.guide-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.guide-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.guide-phone {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.guide-expertise {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.guide-rating {
+  font-size: 0.95rem;
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.guide-name-clickable {
+  cursor: pointer;
+  color: navy; /* Example: Change color on hover */
+  text-decoration: underline; /* Example: Add underline on hover */
+}
+
+.guide-name-clickable:hover {
+  opacity: 0.8;
+}
+
+.guide-short-description {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
