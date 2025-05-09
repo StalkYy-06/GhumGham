@@ -20,6 +20,8 @@ function Header() {
                     <Link to="/countries">Countries</Link>
                     <Link to="/destinations">Destinations</Link>
                     <Link to="/contact">Contact</Link>
+                    {/* Add the Blog link here */}
+                    <Link to="/blog">Blog</Link>  {/* This is the new button */}
                 </nav>
                 {isAuthenticated ? (
                     <div className="profile-container">
