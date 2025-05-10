@@ -56,8 +56,8 @@
 
 .guide-name-clickable {
   cursor: pointer;
-  color: navy; /* Example: Change color on hover */
-  text-decoration: underline; /* Example: Add underline on hover */
+  color: navy; 
+  text-decoration: underline; 
 }
 
 .guide-name-clickable:hover {

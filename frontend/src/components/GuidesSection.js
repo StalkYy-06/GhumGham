@@ -8,7 +8,6 @@ import Guide3Image from "../pages/images/guide3.jpg";
 import Guide4Image from "../pages/images/guide4.jpeg";
 
 function GuidesSection() {
-  // Mock guide data with phone numbers and other info
   const mockGuides = [
     {
       _id: '1',

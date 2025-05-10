@@ -4,7 +4,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import './GuideDetailsPage.css';
 
-// Import individual guide images for the profile
 import Guide1Image from "../pages/images/guide1.jpg";
 import Guide2Image from "../pages/images/guide2.jpg";
 import Guide3Image from "../pages/images/guide3.jpg";
@@ -17,7 +16,6 @@ function GuideDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Map guide IDs to their profile images
   const profileImages = {
     '1': Guide1Image,
     '2': Guide2Image,
@@ -95,7 +93,6 @@ function GuideDetailsPage() {
           <h2>About {guide.name}</h2>
           <p>{guide.longDescription}</p>
         </div>
-        {/* REMOVED THE ADDITIONAL IMAGES SECTION */}
         <button className="book-session-button">Book a Session</button>
       </div>
       <Footer />
