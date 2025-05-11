@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Homepage from './pages/Homepage';
@@ -13,6 +13,9 @@ import ItineraryPage3 from './components/ItineraryPage3';
 import GuidesPage from './pages/GuidesPage';
 import GuideDetailsPage from './pages/GuideDetailsPage'; 
 import EditProfilePage from './pages/editProfile';
+import About from './pages/About';
+import BlogLandingPage from './pages/BlogLandingPage';
+import BlogCategoryPage from './pages/BlogCategoryPage'; 
 
 function App() {
   return (
@@ -32,9 +35,13 @@ function App() {
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guides/:id" element={<GuideDetailsPage />} /> 
           <Route path="/edit-profile" element={<EditProfilePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<BlogLandingPage />} />
+          <Route path="/category/:categoryId" element={<BlogCategoryPage />} />
         </Routes>
       </Router>
     </AuthProvider>
   );
 }
-export default App
+
+export default App;
