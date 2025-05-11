@@ -12,6 +12,7 @@ import backgroundthree from './images/background3.jpg';
 
 import { AuthContext } from '../context/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
+import GuideCard from '../components/GuideCard.js';
 
 // Hero Component with dynamic background change
 function Hero() {
@@ -63,7 +64,7 @@ function Tours() {
           />
           <h3>Muktinath Temple</h3>
           <p>Explore the sacred Muktinath Temple with our experienced guides. A spiritual journey at a sacred site.</p>
-          <Link to="/muktinath" className="cta-button">Learn More</Link>
+          <Link to="/itinerary" className="cta-button">Learn More</Link>
         </div>
 
         {/* Everest Base Camp Trek */}
@@ -75,7 +76,7 @@ function Tours() {
           />
           <h3>Everest Base Camp</h3>
           <p>Embark on the adventure of a lifetime with our Everest Base Camp trek. Challenge yourself and enjoy the breathtaking views.</p>
-          <Link to="/everest" className="cta-button">Learn More</Link>
+          <Link to="/itinerary2" className="cta-button">Learn More</Link>
         </div>
 
         {/* Annapurna Circuit Trek */}
@@ -87,7 +88,7 @@ function Tours() {
           />
           <h3>Annapurna Circuit Trek</h3>
           <p>Experience the majestic Annapurna range and its unique cultures on our Annapurna Circuit Trek.</p>
-          <Link to="/annapurna" className="cta-button">Learn More</Link>
+          <Link to="/itinerary3" className="cta-button">Learn More</Link>
         </div>
       </div>
     </section>
