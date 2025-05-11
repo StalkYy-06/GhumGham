@@ -3,27 +3,29 @@ const router = express.Router();
 const db = require("../config/db");
 
 // Get all destinations
-router.get("/", (req, res) => {
-    db.query("SELECT * FROM destinations", (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
+router.get("/", async (req, res) => {
+    try {
+        const [results] = await db.query("SELECT * FROM destinations");
         res.json(results);
-    });
+    } catch (err) {
+        console.error("Error fetching destinations:", err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // Add a new destination
-router.post("/add", (req, res) => {
+router.post("/add", async (req, res) => {
     const { name, location, description, image_url } = req.body;
-    db.query("INSERT INTO destinations (name, location, description, image_url) VALUES (?, ?, ?, ?)", 
-        [name, location, description, image_url], 
-        (err, results) => {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-            res.json({ message: "Destination added successfully!" });
-        }
-    );
+    try {
+        await db.query(
+            "INSERT INTO destinations (name, location, description, image_url) VALUES (?, ?, ?, ?)",
+            [name, location, description, image_url]
+        );
+        res.json({ message: "Destination added successfully!" });
+    } catch (err) {
+        console.error("Error adding destination:", err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 module.exports = router;

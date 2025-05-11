@@ -10,6 +10,9 @@ import ProfilePage from './pages/ProfilePage';
 import ItineraryPage1 from './components/ItineraryPage1';
 import ItineraryPage2 from './components/ItineraryPage2';
 import ItineraryPage3 from './components/ItineraryPage3';
+import GuidesPage from './pages/GuidesPage';
+import GuideDetailsPage from './pages/GuideDetailsPage'; 
+import EditProfilePage from './pages/editProfile';
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
           <Route path="/itinerary" element={<ItineraryPage1 />} />
           <Route path="/itinerary2" element={<ItineraryPage2 />} />
           <Route path="/itinerary3" element={<ItineraryPage3 />} />
+          <Route path="/guides" element={<GuidesPage />} />
+          <Route path="/guides/:id" element={<GuideDetailsPage />} /> 
+          <Route path="/edit-profile" element={<EditProfilePage />} />
         </Routes>
       </Router>
     </AuthProvider>

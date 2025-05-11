@@ -13,11 +13,7 @@ function Header() {
             <div className="logo-container">
                 {/* Clicking logo redirects to homepage */}
                 <Link to="/">
-                    <img
-                        src={`${process.env.REACT_APP_API_URL}/logo.png`} // Loads logo dynamically from environment variable
-                        alt="Ghumnajam Logo"
-                        className="logo"
-                    />
+                    <img src="/logo.png" alt="Ghumnajam Logo" className="logo" />
                 </Link>
                 {/* Tagline under logo */}
                 <p className="logo-text">EXPLORE WITH EASE</p>
@@ -30,6 +26,7 @@ function Header() {
                     <Link to="/about">About</Link>
                     <Link to="/countries">Countries</Link>
                     <Link to="/destinations">Destinations</Link>
+                    <Link to="/guides">Guides</Link> {/* ADDED "Guides" LINK HERE */}
                     <Link to="/contact">Contact</Link>
                 </nav>
 
