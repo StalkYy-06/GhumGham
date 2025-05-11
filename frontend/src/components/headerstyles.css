@@ -1,3 +1,4 @@
+/* Header container styles */
 .header {
   display: flex;
   justify-content: space-between;
@@ -8,33 +9,39 @@
   flex-wrap: wrap;
 }
 
+/* Logo container */
 .logo-container {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
+/* Logo image styling */
 .logo {
   width: clamp(80px, 10vw, 100px);
   height: auto;
   aspect-ratio: 2 / 1;
 }
 
+/* Slogan under logo */
 .logo-text {
   font-size: clamp(0.7em, 2vw, 0.8em);
 }
 
+/* Navigation container */
 .nav-container {
   display: flex;
   align-items: center;
 }
 
+/* Navigation menu */
 .nav {
   display: flex;
   gap: 2rem;
   margin-right: 5rem;
 }
 
+/* Navigation links */
 .nav a {
   text-decoration: none;
   color: #333;
@@ -42,10 +49,12 @@
   transition: color 0.3s ease;
 }
 
+/* Hover effect on nav links */
 .nav a:hover {
   color: #666;
 }
 
+/* Sign-in/log-out button styling */
 .sign-in-button {
   background-color: black;
   color: white;
@@ -57,10 +66,12 @@
   transition: background-color 0.3s ease;
 }
 
+/* Button hover */
 .sign-in-button:hover {
   background-color: #333;
 }
 
+/* Profile container styling */
 .profile-container {
   display: flex;
   align-items: center;
@@ -82,7 +93,9 @@
   display: inline-block;
 }
 
-/* Responsive Design */
+/* ========== Responsive Design ========== */
+
+/* Tablet breakpoint */
 @media (max-width: 768px) {
   .header {
     padding: 1rem;
@@ -91,7 +104,7 @@
   }
 
   .logo-text {
-    display: none;
+    display: none; /* Hide slogan on smaller screens */
   }
 
   .nav-container {
@@ -105,10 +118,6 @@
     margin-right: 0;
   }
 
-  .nav a {
-    margin: 0;
-  }
-
   .sign-in-button {
     padding: 0.5rem 1rem;
   }
@@ -119,6 +128,7 @@
   }
 }
 
+/* Mobile breakpoint */
 @media (max-width: 480px) {
   .logo-container {
     flex-direction: column;
