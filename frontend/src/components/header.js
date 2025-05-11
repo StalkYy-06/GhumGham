@@ -19,6 +19,7 @@ function Header() {
                     <Link to="/about">About</Link>
                     <Link to="/countries">Countries</Link>
                     <Link to="/destinations">Destinations</Link>
+                    <Link to="/guides">Guides</Link> {/* ADDED "Guides" LINK HERE */}
                     <Link to="/contact">Contact</Link>
                 </nav>
                 {isAuthenticated ? (
