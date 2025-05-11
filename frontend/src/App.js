@@ -9,6 +9,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProfilePage from './pages/ProfilePage';
 import GuidesPage from './pages/GuidesPage';
 import GuideDetailsPage from './pages/GuideDetailsPage'; 
+import EditProfilePage from './pages/editProfile';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/guides/:id" element={<GuideDetailsPage />} /> {/* Add this line */}
+          <Route path="/guides/:id" element={<GuideDetailsPage />} /> 
+          <Route path="/edit-profile" element={<EditProfilePage />} />
         </Routes>
       </Router>
     </AuthProvider>

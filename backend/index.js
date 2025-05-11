@@ -9,6 +9,7 @@ const passport = require("passport");
 const winston = require("winston");
 const db = require("./config/db");
 const sessionStore = require("./config/sessionStore");
+const path = require("path");
 
 require("./config/passport");
 
@@ -44,17 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serve static files for uploads
-app.use('/uploads', express.static('./public/uploads'));
-
-// Database Connection
-db.connect(err => {
-  if (err) {
-    console.error("Database connection failed:", err);
-    process.exit(1);
-  } else {
-    console.log("MySQL Database Connected");
-  }
-});
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // Routes
 app.get("/", (req, res) => {
