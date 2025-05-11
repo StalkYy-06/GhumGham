@@ -28,6 +28,8 @@ function Header() {
                     <Link to="/destinations">Destinations</Link>
                     <Link to="/guides">Guides</Link> {/* ADDED "Guides" LINK HERE */}
                     <Link to="/contact">Contact</Link>
+                    {/* Add the Blog link here */}
+                    <Link to="/blog">Blog</Link>  {/* This is the new button */}
                 </nav>
 
                 {/* Conditional rendering based on auth state */}
@@ -50,4 +52,5 @@ function Header() {
     );
 }
 
-export default Header; // Export component
+export default Header;
+
