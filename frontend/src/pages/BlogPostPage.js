@@ -9,7 +9,12 @@
  import newaricuisine from './images/newaricuisine.jpg';
  import everestregion from './images/everestregion.jpg';
  import bardianationalpark from './images/bardianationalpark.jpg';
+ import pokharaarrival from './images/pokhara.jpg';
  import tranquilboating from './images/tranquilboating.jpg';
+ import rhododendrontrail from './images/rhododendrontrail.jpg';
+ import reachedannapurna from './images/reachedannapurna.jpg'; 
+ 
+ 
   
 
  function BlogPostPage() {
@@ -22,58 +27,52 @@
    setTimeout(() => {
     const mockPosts = [
   {
-   slug: 'annapurna-base-camp-trek',
-      title: 'Discover the Wonders of the Annapurna Base Camp Trek',
-      coverImage: annapurnaBaseCamp,
-      author: 'Adventure Nepal Team',
-      date: 'May 5, 2025',
-   categories: [{ name: 'Adventure', slug: 'adventure' }, { name: 'Trekking', slug: 'trekking' }],
-   tags: ['Nepal', 'Himalayas', 'Trekking', 'Annapurna'],
-   fullContent: `
-     <p>Embark on an unforgettable journey to the Annapurna Base Camp (ABC) Trek, a classic Himalayan adventure that takes you through diverse landscapes and offers breathtaking mountain views. Inspired by the scenic Trunyan Hill hike, this trek provides a similar sense of awe and accomplishment.</p>
-
-     <h2>Getting to the Annapurna Region</h2>
-     <p>The adventure typically begins with a flight to Pokhara, a beautiful lakeside city and the gateway to the Annapurna region. Upon arrival in Pokhara, you'll be greeted by stunning views of the Annapurna range (weather permitting!). The journey continues with a scenic drive to one of the starting points of the trek, such as Nayapul or Phedi.</p>
-     <img src="/images/pokhara_arrival.jpg" alt="Arrival in Pokhara with Annapurna views" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>Similar to the journey to Trunyan, the initial travel involves immersing yourself in the local culture and preparing for the trek ahead. Pokhara itself offers opportunities to explore serene lakes and bustling markets before heading into the mountains.</p>
-
-     <h2>The Trek to Base Camp</h2>
-     <p>The trail winds through charming villages inhabited by the welcoming Gurung communities, lush rhododendron forests that burst into color during spring, and alongside glacial rivers carving their way through the valleys. Each day of the trek unveils new vistas, from terraced fields to cascading waterfalls, with the majestic snow-capped peaks constantly in view.</p>
-     <img src="/images/annapurna_trail.jpg" alt="Trekking trail through rhododendron forest in Annapurna region" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>As you ascend, the air gets crisper, and the landscape transforms, offering increasingly dramatic views of iconic mountains like Machhapuchhre (Fishtail) and Annapurna South. The feeling of walking amidst these giants is truly awe-inspiring, much like the panoramic views experienced from Trunyan Hill, albeit on a grander scale.</p>
-
-     <h2>Reaching Annapurna Base Camp</h2>
-     <p>Arriving at the Annapurna Base Camp (4,130 meters / 13,550 feet) is a profoundly rewarding experience. Surrounded by towering peaks like Annapurna I, Annapurna South, Hiunchuli, and the iconic Machhapuchhre, you'll feel a deep sense of connection with the raw power and beauty of the Himalayas. The base camp itself is a small settlement nestled amongst these giants, offering unparalleled photographic opportunities, especially at sunrise and sunset.</p>
-     <img src="/images/annapurna_base_camp.jpg" alt="Annapurna Base Camp surrounded by snow-capped mountains" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>The feeling of accomplishment upon reaching ABC mirrors the satisfaction of reaching the summit of Trunyan Hill, with the majestic mountain scenery serving as an unforgettable reward for your efforts.</p>
-
-     <h2>Things to Know Before You Go</h2>
-     <ul>
-       <li><strong>Difficulty:</strong> Moderate to strenuous. Requires a good level of fitness and some trekking experience is recommended.</li>
-       <li><strong>Duration:</strong> Typically 7-10 days, depending on the specific itinerary and acclimatization days.</li>
-       <li><strong>Best Time to Trek:</strong> Spring (March-May) and Autumn (September-November) offer the most stable weather and clear mountain views.</li>
-       <li><strong>Altitude Sickness:</strong> Gradual ascent and allowing for acclimatization days are crucial to prevent altitude sickness. Stay hydrated and listen to your body.</li>
-       <li><strong>Permits:</strong> You will need an Annapurna Conservation Area Permit (ACAP) and a Trekkers' Information Management System (TIMS) card, which can be obtained in Kathmandu or Pokhara.</li>
-     </ul>
-
-     <h2>What to Bring</h2>
-     <ul>
-       <li>Sturdy, well-broken-in trekking boots with good ankle support.</li>
-       <li>Warm layers of clothing, including thermal base layers, fleece jackets, and a down jacket.</li>
-       <li>Waterproof and windproof outer jacket and trousers.</li>
-       <li>A comfortable sleeping bag (depending on the teahouse accommodation).</li>
-       <li>Sunscreen, a wide-brimmed hat, and UV protection sunglasses.</li>
-       <li>A basic first-aid kit with personal medications.</li>
-       <li>Plenty of water bottles or a hydration pack, and water purification tablets or a filter.</li>
-       <li>Energy snacks like nuts, dried fruits, and energy bars.</li>
-       <li>A headlamp or flashlight with extra batteries.</li>
-       <li>Trekking poles (optional, but highly recommended for stability).</li>
-     </ul>
-
-     <p>The Annapurna Base Camp Trek, while more extensive and challenging than the Trunyan Hill hike, offers a similar opportunity to deeply immerse yourself in the breathtaking beauty of nature and challenge yourself physically. The memories and panoramic views of the world's highest mountains gained on this trek will undoubtedly last a lifetime.</p>
-   `,
-  },
-  {
+  slug: 'annapurna-base-camp-trek',
+          title: 'Discover the Wonders of the Annapurna Base Camp Trek',
+          coverImage: annapurnaBaseCamp,
+          author: 'Adventure Nepal Team',
+          date: 'May 5, 2025',
+          categories: [{ name: 'Adventure', slug: 'adventure' }, { name: 'Trekking', slug: 'trekking' }],
+          tags: ['Nepal', 'Himalayas', 'Trekking', 'Annapurna'],
+          fullContent: [
+            { type: 'paragraph', text: 'Embark on an unforgettable journey to the Annapurna Base Camp (ABC) Trek, a classic Himalayan adventure that takes you through diverse landscapes and offers breathtaking mountain views. Inspired by the scenic Trunyan Hill hike, this trek provides a similar sense of awe and accomplishment.' },
+            { type: 'heading', level: 2, text: 'Getting to the Annapurna Region' },
+            { type: 'paragraph', text: 'The adventure typically begins with a flight to Pokhara, a beautiful lakeside city and the gateway to the Annapurna region. Upon arrival in Pokhara, you\'ll be greeted by stunning views of the Annapurna range (weather permitting!). The journey continues with a scenic drive to one of the starting points of the trek, such as Nayapul or Phedi.' },
+            { type: 'image', url: pokharaarrival, alt: 'Arrival in Pokhara with Annapurna views', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+            { type: 'paragraph', text: 'Similar to the journey to Trunyan, the initial travel involves immersing yourself in the local culture and preparing for the trek ahead. Pokhara itself offers opportunities to explore serene lakes and bustling markets before heading into the mountains.' },
+            { type: 'heading', level: 2, text: 'The Trek to Base Camp' },
+            { type: 'paragraph', text: 'The trail winds through charming villages inhabited by the welcoming Gurung communities, lush rhododendron forests that burst into color during spring, and alongside glacial rivers carving their way through the valleys. Each day of the trek unveils new vistas, from terraced fields to cascading waterfalls, with the majestic snow-capped peaks constantly in view.' },
+            { type: 'image', url: rhododendrontrail, alt: 'Trekking trail through rhododendron forest in Annapurna region', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+            { type: 'paragraph', text: 'As you ascend, the air gets crisper, and the landscape transforms, offering increasingly dramatic views of iconic mountains like Machhapuchhre (Fishtail) and Annapurna South. The feeling of walking amidst these giants is truly awe-inspiring, much like the panoramic views experienced from Trunyan Hill, albeit on a grander scale.' },
+            { type: 'heading', level: 2, text: 'Reaching Annapurna Base Camp' },
+            { type: 'paragraph', text: 'Arriving at the Annapurna Base Camp (4,130 meters / 13,550 feet) is a profoundly rewarding experience. Surrounded by towering peaks like Annapurna I, Annapurna South, Hiunchuli, and the iconic Machhapuchhre, you\'ll feel a deep sense of connection with the raw power and beauty of the Himalayas. The base camp itself is a small settlement nestled amongst these giants, offering unparalleled photographic opportunities, especially at sunrise and sunset.' },
+            { type: 'image', url: reachedannapurna, alt: 'Annapurna Base Camp surrounded by snow-capped mountains', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+            { type: 'paragraph', text: 'The feeling of accomplishment upon reaching ABC mirrors the satisfaction of reaching the summit of Trunyan Hill, with the majestic mountain scenery serving as an unforgettable reward for your efforts.' },
+            { type: 'heading', level: 2, text: 'Things to Know Before You Go' },
+            { type: 'list', items: [
+              '<strong>Difficulty:</strong> Moderate to strenuous. Requires a good level of fitness and some trekking experience is recommended.',
+              '<strong>Duration:</strong> Typically 7-10 days, depending on the specific itinerary and acclimatization days.',
+              '<strong>Best Time to Trek:</strong> Spring (March-May) and Autumn (September-November) offer the most stable weather and clear mountain views.',
+              '<strong>Altitude Sickness:</strong> Gradual ascent and allowing for acclimatization days are crucial to prevent altitude sickness. Stay hydrated and listen to your body.',
+              '<strong>Permits:</strong> You will need an Annapurna Conservation Area Permit (ACAP) and a Trekkers\' Information Management System (TIMS) card, which can be obtained in Kathmandu or Pokhara.',
+            ]},
+            { type: 'heading', level: 2, text: 'What to Bring' },
+            { type: 'list', items: [
+              'Sturdy, well-broken-in trekking boots with good ankle support.',
+              'Warm layers of clothing, including thermal base layers, fleece jackets, and a down jacket.',
+              'Waterproof and windproof outer jacket and trousers.',
+              'A comfortable sleeping bag (depending on the teahouse accommodation).',
+              'Sunscreen, a wide-brimmed hat, and UV protection sunglasses.',
+              'A basic first-aid kit with personal medications.',
+              'Plenty of water bottles or a hydration pack, and water purification tablets or a filter.',
+              'Energy snacks like nuts, dried fruits, and energy bars.',
+              'A headlamp or flashlight with extra batteries.',
+              'Trekking poles (optional, but highly recommended for stability).',
+            ]},
+            { type: 'paragraph', text: 'The Annapurna Base Camp Trek, while more extensive and challenging than the Trunyan Hill hike, offers a similar opportunity to deeply immerse yourself in the breathtaking beauty of nature and challenge yourself physically. The memories and panoramic views of the world\'s highest mountains gained on this trek will undoubtedly last a lifetime.' },
+          ],
+      },
+      {
    slug: 'kathmandu-valley-cultural-tour',
    title: 'Immerse Yourself in the Rich Culture of Kathmandu Valley',
    coverImage: kathmanduvalley,
@@ -509,17 +508,22 @@
      </div>
     </div>
     <img src={post.coverImage} alt={post.title} className="cover-image" />
-    <div className="post-content" dangerouslySetInnerHTML={{ __html: post.fullContent }} />
-    {post.tags && post.tags.length > 0 && (
-     <div className="post-tags">
-      <strong>Tags:</strong>
-      {post.tags.map((tag) => (
-       <span key={tag} className="tag">
-        {tag}
-       </span>
-      ))}
-     </div>
-    )}
+   <div className="post-content">
+  {post.fullContent.map((item, index) => (
+    <React.Fragment key={index}>
+      {item.type === 'paragraph' && <p>{item.text}</p>}
+      {item.type === 'heading' && item.level === 2 && <h2>{item.text}</h2>}
+      {item.type === 'image' && <img src={item.url} alt={item.alt} style={item.style} />}
+      {item.type === 'list' && (
+        <ul>
+          {item.items.map((listItem, i) => (
+            <li key={i} dangerouslySetInnerHTML={{ __html: listItem }} />
+          ))}
+        </ul>
+      )}
+    </React.Fragment>
+  ))}
+</div>
     <div className="breadcrumb">
      <Link to="/">Home</Link> &gt;
      <Link to="/blog">Blog</Link> &gt;
