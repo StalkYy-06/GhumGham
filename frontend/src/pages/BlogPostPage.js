@@ -1,6 +1,7 @@
  import React, { useState, useEffect } from 'react';
  import { useParams, Link } from 'react-router-dom';
- import './BlogPostPage.css';
+import './BlogPostPage.css';
+ import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
 
  function BlogPostPage() {
   const { slug } = useParams();
@@ -13,10 +14,10 @@
     const mockPosts = [
   {
    slug: 'annapurna-base-camp-trek',
-   title: 'Discover the Wonders of the Annapurna Base Camp Trek',
-   coverImage: '/images/annapurna_trek_full.jpg',
-   author: 'Adventure Nepal Team',
-   date: 'May 5, 2025',
+      title: 'Discover the Wonders of the Annapurna Base Camp Trek',
+      coverImage: annapurnaBaseCamp,
+      author: 'Adventure Nepal Team',
+      date: 'May 5, 2025',
    categories: [{ name: 'Adventure', slug: 'adventure' }, { name: 'Trekking', slug: 'trekking' }],
    tags: ['Nepal', 'Himalayas', 'Trekking', 'Annapurna'],
    fullContent: `
