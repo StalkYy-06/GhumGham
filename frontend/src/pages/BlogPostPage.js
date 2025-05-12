@@ -5,6 +5,7 @@
  import kathmanduvalley from './images/kathmanduvalley.jpg';
  import chitwannationalpark from './images/chitwannationalpark.jpg';
  import daalbhat from './images/daalbhat.jpg';
+ import momomaking from './images/momomaking.jpg';
   
 
  function BlogPostPage() {
@@ -228,7 +229,7 @@
      {
       slug: 'momo-making-class-kathmandu',
    title: 'Unlock the Secrets of Delicious Nepali Momos in Kathmandu',
-   coverImage: '/images/momo_making_full.jpg',
+   coverImage: momomaking,
    author: 'Kathmandu Cooking School',
    date: 'May 9, 2025',
    categories: [{ name: 'Food', slug: 'food' }, { name: 'Cooking Class', slug: 'cooking-class' }],

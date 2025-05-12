@@ -2,6 +2,7 @@
  import './BlogPostList.css';
  import { Link } from 'react-router-dom';
  import daalbhat from './images/daalbhat.jpg';
+ import momomaking from './images/momomaking.jpg';
 
  function FoodCategoryPage() {
   const [foodPosts, setFoodPosts] = useState([]);
@@ -21,7 +22,7 @@
      {
       slug: 'momo-making-class-kathmandu',
       title: 'Unlock the Secrets of Delicious Nepali Momos in Kathmandu',
-      imageUrl: '/momo_making_thumb.jpg', 
+      imageUrl: momomaking, 
       excerpt: 'Join a local cooking class and learn the art of making traditional Nepali dumplings: momos...',
       categories: [{ name: 'Food', slug: 'food' }, { name: 'Cooking Class', slug: 'cooking-class' }, { name: 'Nepal', slug: 'nepal' }],
      },
