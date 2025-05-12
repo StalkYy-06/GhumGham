@@ -3,6 +3,7 @@ import './BlogPostList.css';
 import { Link } from 'react-router-dom';
 import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
 import kathmanduvalley from './images/kathmanduvalley.jpg';
+import chitwannationalpark from './images/chitwannationalpark.jpg';
 
  function AdventureCategoryPage() {
   const [adventurePosts, setAdventurePosts] = useState([]);
@@ -29,7 +30,7 @@ import kathmanduvalley from './images/kathmanduvalley.jpg';
      {
       slug: 'chitwan-national-park-nature-safari',
       title: 'Experience Wildlife and Nature in Chitwan National Park',
-      imageUrl: '/images/chitwan_nature_safari_thumb.jpg',
+      imageUrl: chitwannationalpark,
       excerpt: 'Discover the diverse flora and fauna of Chitwan National Park through guided nature walks and wildlife safaris...',
       categories: [{ name: 'Adventure', slug: 'adventure' }, { name: 'Nature Walks', slug: 'nature-walks' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }, { name: 'Nepal', slug: 'nepal' }],
      },

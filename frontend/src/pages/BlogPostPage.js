@@ -3,6 +3,7 @@
  import './BlogPostPage.css';
  import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
  import kathmanduvalley from './images/kathmanduvalley.jpg';
+ import chitwannationalpark from './images/chitwannationalpark.jpg';
 
  function BlogPostPage() {
   const { slug } = useParams();
@@ -120,7 +121,7 @@
   {
    slug: 'chitwan-national-park-nature-safari',
    title: 'Experience Wildlife and Nature in Chitwan National Park',
-   coverImage: '/images/chitwan_safari_full.jpg',
+   coverImage: chitwannationalpark,
    author: 'Wildlife Safaris Nepal',
    date: 'May 10, 2025',
    categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }],
