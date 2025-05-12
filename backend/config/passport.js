@@ -7,44 +7,40 @@ const db = require("./db");
 passport.use(
     new GoogleStrategy(
         {
-            clientID: process.env.GOOGLE_CLIENT_ID, // Google OAuth Client ID
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET, // Google OAuth Client Secret
-            callbackURL: process.env.CALLBACK_URL, // Redirect URL after Google login
+            clientID: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            callbackURL: process.env.CALLBACK_URL,
         },
-        (accessToken, refreshToken, profile, done) => {
+        async (accessToken, refreshToken, profile, done) => {
             console.log("Google profile received:", profile.id, profile.displayName);
-            db.query(
-                "SELECT * FROM users WHERE google_id = ?",
-                [profile.id],
-                (err, results) => {
-                    if (err) {
-                        return done(err);
-                    }
+            try {
+                const [results] = await db.query(
+                    "SELECT * FROM users WHERE google_id = ?",
+                    [profile.id]
+                );
 
-                    if (results.length > 0) {
-                        return done(null, results[0]);
-                    } else {
-                        const newUser = {
-                            google_id: profile.id,
-                            name: profile.displayName,
-                            email: profile.emails[0].value,
-                        };
-
-                        db.query(
-                            "INSERT INTO users (google_id, name, email) VALUES (?, ?, ?)",
-                            [newUser.google_id, newUser.name, newUser.email],
-                            (err, results) => {
-                                if (err) {
-                                    return done(err);
-                                }
-                                newUser.id = results.insertId;
-                                return done(null, newUser);
-                            }
-                        );
-                    }
+                if (results.length > 0) {
+                    return done(null, results[0]);
                 }
-            );
 
+                const newUser = {
+                    name: profile.displayName,
+                    email: profile.emails && profile.emails[0] ? profile.emails[0].value : null,
+                    google_id: profile.id,
+                    avatar_url: profile.photos && profile.photos[0] ? profile.photos[0].value : null,
+                    created_at: new Date()
+                };
+
+                const [insertResult] = await db.query(
+                    "INSERT INTO users (name, email, google_id, avatar_url, created_at) VALUES (?, ?, ?, ?, ?)",
+                    [newUser.name, newUser.email, newUser.google_id, newUser.avatar_url, newUser.created_at]
+                );
+
+                newUser.id = insertResult.insertId;
+                return done(null, newUser);
+            } catch (err) {
+                return done(err);
+            }
         }
     )
 );
@@ -55,11 +51,28 @@ passport.serializeUser((user, done) => {
 })
 
 // Deserialize user from session
-passport.deserializeUser((id, done) => {
-    db.query("SELECT * FROM users WHERE id = ?", [id], (err, results) => {
-        if (err) {
-            return done(err);
+passport.deserializeUser(async (id, done) => {
+    try {
+        const [results] = await db.query(
+            "SELECT * FROM users WHERE id = ?",
+            [id]
+        );
+
+        if (results.length === 0) {
+            return done(null, false);
         }
-        done(null, results[0]); // Return user object
-    });
+
+        const user = {
+            id: results[0].id,
+            name: results[0].name,
+            email: results[0].email,
+            google_id: results[0].google_id,
+            bio: results[0].bio || null,
+            avatar_url: results[0].avatar_url || null
+        };
+
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
 });

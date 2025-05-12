@@ -4,13 +4,22 @@ const db = require("../config/db");
 const multer = require('multer');
 const path = require('path');
 
-const query = (sql, params) => {
-    return new Promise((resolve, reject) => {
-        db.query(sql, params, (err, results) => {
-            if (err) reject(err);
-            else resolve(results);
-        });
-    });
+// Promise-based query helper
+const query = async (sql, params) => {
+    try {
+        const [results] = await db.query(sql, params);
+        return results;
+    } catch (err) {
+        throw err;
+    }
+};
+
+// Custom middleware to check if user is authenticated
+const isAuthenticated = (req, res, next) => {
+    if (req.session && req.session.user) {
+        return next();
+    }
+    return res.status(401).json({ error: "Not authenticated" });
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,9 +27,28 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 router.get("/", async (req, res) => {
     try {
         const results = await query("SELECT id, name, email FROM users");
-        res.json(results);
+        res.json({ user: results });
     } catch (err) {
         console.error("Error fetching users:", err);
+        res.status(500).json({ error: "Database error" });
+    }
+});
+
+router.get("/profile", isAuthenticated, async (req, res) => {
+    try {
+        const userId = req.session.user.id;
+        const results = await query(
+            "SELECT id, name, email, bio, avatar_url FROM users WHERE id = ?",
+            [userId]
+        );
+
+        if (results.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        res.json({ user: results[0] });
+    } catch (err) {
+        console.error("Error fetching user profile:", err);
         res.status(500).json({ error: "Database error" });
     }
 });
@@ -39,13 +67,9 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.put("/update", async (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({ error: "Not authenticated" });
-    }
-
+router.put("/update", isAuthenticated, async (req, res) => {
     const { name, email, bio } = req.body;
-    const userId = req.user.id;
+    const userId = req.session.user.id;
 
     if (!name || !email) {
         return res.status(400).json({ error: "Name and email are required" });
@@ -61,6 +85,8 @@ router.put("/update", async (req, res) => {
 
         const existingUser = await query("SELECT * FROM users WHERE email = ? AND id != ?", [email, userId]);
         if (existingUser.length > 0) {
+            await connection.rollback();
+            connection.release();
             return res.status(400).json({ error: "Email already in use" });
         }
 
@@ -69,8 +95,22 @@ router.put("/update", async (req, res) => {
             [name, email, bio || null, userId]
         );
 
+        req.session.user = {
+            ...req.session.user,
+            name,
+            email
+        };
+
         await connection.commit();
-        res.json({ message: "Profile updated successfully" });
+        res.json({
+            message: "Profile updated successfully",
+            user: {
+                id: userId,
+                name,
+                email,
+                bio: bio || null
+            }
+        });
     } catch (error) {
         await connection.rollback();
         console.error("Profile update error:", error);
@@ -80,12 +120,8 @@ router.put("/update", async (req, res) => {
     }
 });
 
-router.delete("/delete", async (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({ error: "Not authenticated" });
-    }
-
-    const userId = req.user.id;
+router.delete("/delete", isAuthenticated, async (req, res) => {
+    const userId = req.session.user.id;
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
@@ -128,10 +164,7 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post("/upload-avatar", upload.single('avatar'), async (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({ error: "Not authenticated" });
-    }
+router.post("/upload-avatar", isAuthenticated, upload.single('avatar'), async (req, res) => {
     if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
     }
@@ -142,8 +175,14 @@ router.post("/upload-avatar", upload.single('avatar'), async (req, res) => {
         await connection.beginTransaction();
         await connection.query(
             "UPDATE users SET avatar_url = ? WHERE id = ?",
-            [avatarUrl, req.user.id]
+            [avatarUrl, req.session.user.id]
         );
+
+        req.session.user = {
+            ...req.session.user,
+            avatar_url: avatarUrl
+        };
+
         await connection.commit();
         res.json({ avatar_url: avatarUrl });
     } catch (err) {
