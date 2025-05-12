@@ -1,6 +1,7 @@
  import React, { useState, useEffect } from 'react';
  import './BlogPostList.css';
  import { Link } from 'react-router-dom';
+ import daalbhat from './images/daalbhat.jpg';
 
  function FoodCategoryPage() {
   const [foodPosts, setFoodPosts] = useState([]);
@@ -13,7 +14,7 @@
      {
       slug: 'nepali-dal-bhat-recipe',
       title: 'The Heart of Nepali Cuisine: Mastering Dal Bhat',
-      imageUrl: '/dal_bhat_thumb.jpg', 
+      imageUrl: daalbhat, 
       excerpt: 'Discover the national dish of Nepal: a comforting and nutritious meal of lentil soup, rice, and curries...',
       categories: [{ name: 'Food', slug: 'food' }, { name: 'Culture', slug: 'culture' }, { name: 'Nepal', slug: 'nepal' }],
      },

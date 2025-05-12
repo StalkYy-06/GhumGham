@@ -4,6 +4,8 @@
  import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
  import kathmanduvalley from './images/kathmanduvalley.jpg';
  import chitwannationalpark from './images/chitwannationalpark.jpg';
+ import daalbhat from './images/daalbhat.jpg';
+  
 
  function BlogPostPage() {
   const { slug } = useParams();
@@ -172,7 +174,7 @@
   {
   slug: 'nepali-dal-bhat-recipe',
   title: 'The Heart of Nepali Cuisine: Mastering Dal Bhat',
-  coverImage: '/images/dal_bhat_full.jpg',
+  coverImage: daalbhat,
   author: 'Nepali Food Blog',
   date: 'May 7, 2025',
   categories: [{ name: 'Food', slug: 'food' }, { name: 'Culture', slug: 'culture' }],
