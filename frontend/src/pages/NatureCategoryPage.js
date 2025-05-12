@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
  import './BlogPostList.css';
  import { Link } from 'react-router-dom';
+ import everestregion from './images/everestregion.jpg';
+ import bardianationalpark from './images/bardianationalpark.jpg';
+ import tranquilboating from './images/tranquilboating.jpg';
 
  function NatureCategoryPage() {
   const [naturePosts, setNaturePosts] = useState([]);
@@ -13,21 +16,21 @@ import React, { useState, useEffect } from 'react';
      {
       slug: 'hiking-everest-region',
       title: 'Breathtaking Hikes in the Everest Region',
-      imageUrl: '/everest_hike_thumb.jpg', 
+      imageUrl: everestregion, 
       excerpt: 'Discover stunning trails with unparalleled views of the world\'s highest peaks in the Everest region of Nepal...',
       categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Hiking', slug: 'hiking' }, { name: 'Nepal', slug: 'nepal' }],
      },
      {
       slug: 'exploring-bardia-national-park',
       title: 'Wildlife Encounters in Bardia National Park',
-      imageUrl: '/bardia_wildlife_thumb.jpg',
+      imageUrl: bardianationalpark,
       excerpt: 'Embark on a jungle safari in Bardia National Park, home to diverse wildlife including rhinos, tigers, and elephants...',
       categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }, { name: 'Nepal', slug: 'nepal' }],
      },
      {
       slug: 'phewa-lake-boating-pokhara',
       title: 'Tranquil Boating on Phewa Lake in Pokhara',
-      imageUrl: '/phewa_lake_boating_thumb.jpg',
+      imageUrl: tranquilboating,
       excerpt: 'Enjoy the serenity of Phewa Lake with a relaxing boat ride and stunning reflections of the Annapurna mountains...',
       categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Boating', slug: 'boating' }, { name: 'Nepal', slug: 'nepal' }],
      },

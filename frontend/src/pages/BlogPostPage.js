@@ -7,6 +7,9 @@
  import daalbhat from './images/daalbhat.jpg';
  import momomaking from './images/momomaking.jpg';
  import newaricuisine from './images/newaricuisine.jpg';
+ import everestregion from './images/everestregion.jpg';
+ import bardianationalpark from './images/bardianationalpark.jpg';
+ import tranquilboating from './images/tranquilboating.jpg';
   
 
  function BlogPostPage() {
@@ -323,7 +326,7 @@
      {
       slug: 'hiking-everest-region',
    title: 'Breathtaking Hikes in the Everest Region',
-   coverImage: '/images/everest_hike_full.jpg',
+   coverImage: everestregion,
    author: 'Everest Trekking Guides',
    date: 'May 4, 2025',
    categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Hiking', slug: 'hiking' }],
@@ -368,7 +371,7 @@
   {
    slug: 'exploring-bardia-national-park',
    title: 'Wildlife Encounters in Bardia National Park',
-   coverImage: '/images/bardia_wildlife_full.jpg',
+   coverImage: bardianationalpark,
    author: 'Bardia Wildlife Experts',
    date: 'May 7, 2025',
    categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }],
@@ -416,7 +419,7 @@
      {
       slug: 'phewa-lake-boating-pokhara',
    title: 'Tranquil Boating on Phewa Lake in Pokhara',
-   coverImage: '/images/phewa_lake_boating_full.jpg',
+   coverImage: tranquilboating,
    author: 'Pokhara Lakeside Adventures',
    date: 'May 9, 2025',
    categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Boating', slug: 'bo ting' }],
