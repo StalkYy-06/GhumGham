@@ -6,6 +6,7 @@
  import chitwannationalpark from './images/chitwannationalpark.jpg';
  import daalbhat from './images/daalbhat.jpg';
  import momomaking from './images/momomaking.jpg';
+ import newaricuisine from './images/newaricuisine.jpg';
   
 
  function BlogPostPage() {
@@ -287,7 +288,7 @@
   {
    slug: 'newari-food-experience',
    title: 'A Culinary Journey Through Newari Cuisine',
-   coverImage: '/images/newari_food_full.jpg',
+   coverImage: newaricuisine,
    author: 'Newari Food Heritage',
    date: 'May 6, 2025',
    categories: [{ name: 'Food', slug: 'food' }, { name: 'Culture', slug: 'culture' }],

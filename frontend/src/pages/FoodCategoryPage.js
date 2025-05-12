@@ -3,6 +3,7 @@
  import { Link } from 'react-router-dom';
  import daalbhat from './images/daalbhat.jpg';
  import momomaking from './images/momomaking.jpg';
+ import newaricuisine from './images/newaricuisine.jpg';
 
  function FoodCategoryPage() {
   const [foodPosts, setFoodPosts] = useState([]);
@@ -29,7 +30,7 @@
      {
       slug: 'newari-food-experience',
       title: 'A Culinary Journey Through Newari Cuisine',
-      imageUrl: '/newari_food_thumb.jpg', 
+      imageUrl: newaricuisine, 
       excerpt: 'Experience the unique and flavorful dishes of the Newari people, the indigenous community of the Kathmandu Valley...',
       categories: [{ name: 'Food', slug: 'food' }, { name: 'Culture', slug: 'culture' }, { name: 'Nepal', slug: 'nepal' }],
      },
