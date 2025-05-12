@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
- import './BlogPostList.css';
+import './BlogPostList.css';
 import { Link } from 'react-router-dom';
- import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
+import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
+import kathmanduvalley from './images/kathmanduvalley.jpg';
 
  function AdventureCategoryPage() {
   const [adventurePosts, setAdventurePosts] = useState([]);
@@ -21,7 +22,7 @@ import { Link } from 'react-router-dom';
      {
       slug: 'kathmandu-valley-cultural-tour',
       title: 'Immerse Yourself in the Rich Culture of Kathmandu Valley',
-      imageUrl: '/images/kathmandu_cultural_tour_thumb.jpg',
+      imageUrl: kathmanduvalley,
       excerpt: 'Explore the ancient temples, historical sites, and vibrant traditions of the Kathmandu Valley. A journey through Nepal\'s cultural heartland...',
       categories: [{ name: 'Adventure', slug: 'adventure' }, { name: 'Cultural Tours', slug: 'cultural-tours' }, { name: 'Nepal', slug: 'nepal' }],
      },

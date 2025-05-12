@@ -1,7 +1,8 @@
  import React, { useState, useEffect } from 'react';
  import { useParams, Link } from 'react-router-dom';
-import './BlogPostPage.css';
+ import './BlogPostPage.css';
  import annapurnaBaseCamp from './images/annapurnabasecamp.jpg';
+ import kathmanduvalley from './images/kathmanduvalley.jpg';
 
  function BlogPostPage() {
   const { slug } = useParams();
@@ -67,7 +68,7 @@ import './BlogPostPage.css';
   {
    slug: 'kathmandu-valley-cultural-tour',
    title: 'Immerse Yourself in the Rich Culture of Kathmandu Valley',
-   coverImage: '/images/kathmandu_culture_full.jpg',
+   coverImage: kathmanduvalley,
    author: 'Nepal Cultural Expeditions',
    date: 'May 8, 2025',
    categories: [{ name: 'Culture', slug: 'culture' }, { name: 'Cultural Tours', slug: 'cultural-tours' }],
