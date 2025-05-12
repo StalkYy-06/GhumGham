@@ -1,6 +1,6 @@
 // ItineraryPage2.js
 import React from 'react';
-import '../components/Itenarypage.css';
+import './Itenarypage.css';
 
 const itineraryData = [
   {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './BlogCategoryPage.css';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 function BlogCategoryPage() {
   const { categoryId } = useParams();  // Get the categoryId from the URL
@@ -33,10 +35,18 @@ function BlogCategoryPage() {
   const { title, content } = getCategoryContent(categoryId); // Get content based on categoryId
 
   return (
-    <div className="category-page">
-      <h2>{title}</h2>
-      <p>{content}</p>
+    <div>
+      <Header />
+      <div className='full'>
+        <div className="category-page">
+          <h2>{title}</h2>
+          <p>{content}</p>
+        </div>
+        <Footer />
+      </div>
     </div>
+
+
   );
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import GuideCard from './GuideCard';
+import GuideCard from '../pages/GuideCard';
 import './GuidesSection.css';
 import { Link } from 'react-router-dom';
-import Guide1Image from "../pages/images/guide1.jpg"; 
-import Guide2Image from "../pages/images/guide2.jpg"; 
-import Guide3Image from "../pages/images/guide3.jpg"; 
+import Guide1Image from "../pages/images/guide1.jpg";
+import Guide2Image from "../pages/images/guide2.jpg";
+import Guide3Image from "../pages/images/guide3.jpg";
 import Guide4Image from "../pages/images/guide4.jpeg";
 
 function GuidesSection() {
@@ -37,14 +37,14 @@ function GuidesSection() {
       rating: 4.9,
     },
     {
-    _id: '4',
-    name: 'Supriya',
-    description: 'Passionate about sharing the beauty of the Himalayas.',
-    image: Guide4Image,
-    phone: '+977 9841390988',
-    expertise: 'Trekking, Nature Walks, Bird Watching',
-    rating: 4.7,
-  },
+      _id: '4',
+      name: 'Supriya',
+      description: 'Passionate about sharing the beauty of the Himalayas.',
+      image: Guide4Image,
+      phone: '+977 9841390988',
+      expertise: 'Trekking, Nature Walks, Bird Watching',
+      rating: 4.7,
+    },
   ];
 
   return (

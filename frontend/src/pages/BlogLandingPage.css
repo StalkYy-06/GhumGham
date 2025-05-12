@@ -1,26 +1,32 @@
 /* BlogLandingPage.css */
 .landing-page {
-    text-align: center;
-    padding: 30px;
-  }
-  
-  .image-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    flex-wrap: wrap;
-  }
-  
-  .image-container a img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-    margin: 10px;
-  }
-  
-  .image-container a img:hover {
-    transform: scale(1.05);
-  }
-  
+  text-align: center;
+  padding: 30px;
+  flex: 1;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.image-container a img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.image-container a img:hover {
+  transform: scale(1.05);
+}
+
+.Full {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
