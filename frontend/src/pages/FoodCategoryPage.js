@@ -30,7 +30,7 @@
      {
       slug: 'newari-food-experience',
       title: 'A Culinary Journey Through Newari Cuisine',
-      imageUrl: newaricuisine, 
+      imageUrl: newaricuisine,
       excerpt: 'Experience the unique and flavorful dishes of the Newari people, the indigenous community of the Kathmandu Valley...',
       categories: [{ name: 'Food', slug: 'food' }, { name: 'Culture', slug: 'culture' }, { name: 'Nepal', slug: 'nepal' }],
      },
