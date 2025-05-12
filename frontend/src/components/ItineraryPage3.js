@@ -1,66 +1,101 @@
-// ItineraryPage3.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../components/Itenarypage.css';
 
-const itineraryData = [
-  {
-    day: "Day 1",
-    title: "Drive to Besisahar",
-    activities: [
-      "Drive from Kathmandu to Besisahar",
-      "Overnight stay",
-    ],
-  },
-  {
-    day: "Day 2–5",
-    title: "Trek Through Villages",
-    activities: [
-      "Trek to Chame, Pisang, and Manang",
-      "Explore Buddhist monasteries and culture",
-    ],
-  },
-  {
-    day: "Day 6–7",
-    title: "Acclimatization & High Camp",
-    activities: [
-      "Rest and acclimatize in Manang",
-      "Trek to Yak Kharka and Thorong Phedi",
-    ],
-  },
-  {
-    day: "Day 8",
-    title: "Cross Thorong La Pass",
-    activities: [
-      "Trek early morning to Thorong La (5,416m)",
-      "Descend to Muktinath",
-    ],
-  },
-  {
-    day: "Day 9–10",
-    title: "Return to Pokhara",
-    activities: [
-      "Drive to Jomsom",
-      "Fly to Pokhara and relax",
-    ],
-  },
-];
+import day1 from '../pages/images/Besisahar.jpg';
+import day2to5 from '../pages/images/trek.jpeg';
+import day6to7 from '../pages/images/Acclimatization&HighCamp.jpeg';
+import day8 from '../pages/images/thorong.jpeg';
+import day9to10 from '../pages/images/ReturntoPokhara.jpg';
 
 function ItineraryPage3() {
-  return (
-    <div className="itinerary-container">
-      <h1 className="itinerary-title">Itinerary Page 3: Annapurna Circuit Trek</h1>
-      {itineraryData.map((day, index) => (
-        <div key={index} className="itinerary-day">
-          <h2 className="day-heading">{day.day}: {day.title}</h2>
-          <ul className="activity-list">
-            {day.activities.map((activity, idx) => (
-              <li key={idx} className="activity-item">{activity}</li>
-            ))}
-          </ul>
+    useEffect(() => {
+        document.body.className = 'itinerary-page-3';
+        return () => {
+            document.body.className = '';
+        };
+    }, []);
+
+    return (
+        <div className="itinerary-container">
+            <h1 className="itinerary-title">TRIP ITINERARY: ANNAPURNA CIRCUIT TREK</h1>
+            <div className="itinerary-header-details">
+                <div><strong>Destination:</strong> Annapurna Circuit</div>
+                <div><strong>Duration:</strong> 10 Days</div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day1} alt="Day 1 - Besisahar" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 1: Drive to Besisahar</h2>
+                    <div className="session-block">
+                        <strong>Morning:</strong>
+                        <p>Drive from Kathmandu to Besisahar.</p>
+                    </div>
+                    <div className="session-block">
+                        <strong>Evening:</strong>
+                        <p>Overnight stay.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day2to5} alt="Day 2–5 - Trek to Manang" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 2–5: Trek Through Villages</h2>
+                    <div className="session-block">
+                        <strong>Days 2–5:</strong>
+                        <p>Trek to Chame, Pisang, and Manang.</p>
+                        <p>Explore Buddhist monasteries and culture.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day6to7} alt="Day 6–7 - Acclimatization and High Camp" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 6–7: Acclimatization & High Camp</h2>
+                    <div className="session-block">
+                        <strong>Day 6:</strong>
+                        <p>Rest and acclimatize in Manang.</p>
+                    </div>
+                    <div className="session-block">
+                        <strong>Day 7:</strong>
+                        <p>Trek to Yak Kharka and Thorong Phedi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day8} alt="Day 8 - Thorong La Pass" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 8: Cross Thorong La Pass</h2>
+                    <div className="session-block">
+                        <strong>Morning:</strong>
+                        <p>Trek early morning to Thorong La (5,416m).</p>
+                    </div>
+                    <div className="session-block">
+                        <strong>Afternoon:</strong>
+                        <p>Descend to Muktinath.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day9to10} alt="Day 9–10 - Return to Pokhara" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 9–10: Return to Pokhara</h2>
+                    <div className="session-block">
+                        <strong>Day 9:</strong>
+                        <p>Drive to Jomsom.</p>
+                    </div>
+                    <div className="session-block">
+                        <strong>Day 10:</strong>
+                        <p>Fly to Pokhara and relax.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      ))}
-    </div>
-  );
+    );
 }
 
 export default ItineraryPage3;
