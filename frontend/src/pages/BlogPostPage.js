@@ -19,7 +19,11 @@
  import pashupatinath from './images/pashupatinath.jpg';
  import bhaktapurdurbar from './images/bhaktapurdurbar.jpg';
  import patandurbar from './images/patandurbar.jpg';
- 
+ import chitwanwalking from './images/chitwanwalking.png';
+ import canoe from './images/canoe.jpg';
+ import elephantsafari from './images/elephantsafari.jpg';
+ import birdwatching from './images/birdwatching.jpg';
+ import tharudance from './images/tharudance.jpg';
  
  function BlogPostPage() {
   const { slug } = useParams();
@@ -124,56 +128,53 @@
   ],
 },
   {
-   slug: 'chitwan-national-park-nature-safari',
-   title: 'Experience Wildlife and Nature in Chitwan National Park',
-   coverImage: chitwannationalpark,
-   author: 'Wildlife Safaris Nepal',
-   date: 'May 10, 2025',
-   categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }],
-   tags: ['Nepal', 'Chitwan', 'Safari', 'Wildlife'],
-   fullContent: `
-     <p>Embark on an exciting nature safari in Chitwan National Park, Nepal's first national park and a UNESCO World Heritage site. This adventure, while focused on wildlife encounters rather than hiking, shares the spirit of exploration and natural discovery found in places like Trunyan Hill.</p>
-
-     <h2>Day 1: Arrival in Chitwan & Jungle Activities</h2>
-     <p>Arrive in Chitwan and settle into your jungle lodge. Begin your wildlife adventure with activities like a guided nature walk, where you can learn about the park's diverse flora and fauna, and a visit to a Tharu village to experience the local culture.</p>
-     <img src="/images/chitwan_jungle_walk.jpg" alt="Jungle walk in Chitwan National Park" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>Similar to observing the unique traditions in Trunyan, interacting with the local Tharu community provides cultural insights into the region surrounding the national park.</p>
-
-     <h2>Day 2: Canoe Ride & Elephant Safari</h2>
-     <p>Enjoy a peaceful canoe ride along the Rapti River, providing excellent opportunities to observe aquatic birds, crocodiles, and other wildlife along the riverbanks. In the afternoon, experience a unique elephant-back safari, venturing deeper into the jungle for a chance to spot rhinos and possibly even tigers.</p>
-     <img src="/images/chitwan_elephant_safari.jpg" alt="Elephant safari in Chitwan for wildlife viewing" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>The thrill of encountering wildlife in their natural habitat offers a different kind of excitement compared to the scenic rewards of a hike like Trunyan Hill.</p>
-
-     <h2>Day 3: Bird Watching & Cultural Program</h2>
-     <p>Chitwan is a paradise for bird watchers, with over 500 species recorded. Spend the morning exploring different habitats with a knowledgeable guide. In the evening, enjoy a traditional Tharu cultural dance performance showcasing their unique customs and heritage.</p>
-     <img src="/images/tharu_dance_chitwan.jpg" alt="Traditional Tharu dance performance in Chitwan" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>The cultural program offers another layer of understanding the local context, similar to the cultural elements one might encounter when visiting the area around Trunyan.</p>
-
-     <h2>Day 4: Departure</h2>
-     <p>After breakfast, enjoy a final opportunity for wildlife viewing or a nature walk before departing from Chitwan, carrying memories of incredible wildlife encounters and the serene beauty of the Terai region.</p>
-     <p>A nature safari in Chitwan National Park offers a thrilling and immersive experience in Nepal's natural wonders, providing a different kind of adventure than the mountainous landscapes of Trunyan Hill.</p>
-
-     <h2>Things to Know Before You Go</h2>
-     <ul>
-       <li><strong>Duration:</strong> Typically 3-4 days.</li>
-       <li><strong>Best Time to Visit:</strong> October to March for pleasant weather and good wildlife viewing.</li>
-       <li><strong>Malaria Prevention:</strong> Consult your doctor about malaria precautions for the Terai region.</li>
-       <li><strong>Park Regulations:</strong> Follow the guidelines provided by your guide and the park authorities.</li>
-     </ul>
-
-     <h2>What to Bring</h2>
-     <ul>
-       <li>Lightweight and comfortable clothing in neutral colors.</li>
-       <li>Sturdy walking shoes or boots.</li>
-       <li>Insect repellent.</li>
-       <li>Sunscreen, hat, and sunglasses.</li>
-       <li>Binoculars for wildlife viewing.</li>
-       <li>Camera with a good zoom lens.</li>
-     </ul>
-
-     <p>A wildlife safari in Chitwan National Park provides an unforgettable opportunity to connect with nature and witness incredible wildlife, offering a unique adventure in the heart of Nepal.</p>
-   `,
-  },
+  slug: 'chitwan-national-park-nature-safari',
+  title: 'Experience Wildlife and Nature in Chitwan National Park',
+  coverImage: chitwannationalpark,
+  author: 'Wildlife Safaris Nepal',
+  date: 'May 10, 2025',
+  categories: [{ name: 'Nature', slug: 'nature' }, { name: 'Wildlife Safari', slug: 'wildlife-safari' }],
+  tags: ['Nepal', 'Chitwan', 'Safari', 'Wildlife'],
+  fullContent: [
+    { type: 'paragraph', text: 'Embark on an exciting nature safari in Chitwan National Park, Nepal\'s first national park and a UNESCO World Heritage site. This adventure, while focused on wildlife encounters rather than hiking, shares the spirit of exploration and natural discovery found in places like Trunyan Hill.' },
+    { type: 'heading', level: 2, text: 'Day 1: Arrival in Chitwan & Jungle Activities' },
+    { type: 'paragraph', text: 'Arrive in Chitwan and settle into your jungle lodge. Begin your wildlife adventure with activities like a guided nature walk, where you can learn about the park\'s diverse flora and fauna, and a visit to a Tharu village to experience the local culture.' },
+    { type: 'image', url: chitwanwalking, alt: 'Jungle walk in Chitwan National Park', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'Similar to observing the unique traditions in Trunyan, interacting with the local Tharu community provides cultural insights into the region surrounding the national park.' },
+    { type: 'heading', level: 2, text: 'Day 2: Canoe Ride & Elephant Safari' },
+    { type: 'paragraph', text: 'Enjoy a peaceful canoe ride along the Rapti River, providing excellent opportunities to observe aquatic birds, crocodiles, and other wildlife along the riverbanks.' },
+    { type: 'image', url: canoe, alt: 'Canoe ride in Chitwan National Park', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'In the afternoon, experience a unique elephant-back safari, venturing deeper into the jungle for a chance to spot rhinos and possibly even tigers.' },
+    { type: 'image', url: elephantsafari, alt: 'Elephant safari in Chitwan for wildlife viewing', style: { maxWidth: '80%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'The thrill of encountering wildlife in their natural habitat offers a different kind of excitement compared to the scenic rewards of a hike like Trunyan Hill.' },
+    { type: 'heading', level: 2, text: 'Day 3: Bird Watching & Cultural Program' },
+    { type: 'paragraph', text: 'Chitwan is a paradise for bird watchers, with over 500 species recorded. Spend the morning exploring different habitats with a knowledgeable guide.' },
+    { type: 'image', url: birdwatching, alt: 'Bird watching in Chitwan National Park', style: { maxWidth: '80%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'In the evening, enjoy a traditional Tharu cultural dance performance showcasing their unique customs and heritage.' },
+    { type: 'image', url: tharudance, alt: 'Traditional Tharu dance performance in Chitwan', style: { maxWidth: '80%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'The cultural program offers another layer of understanding the local context, similar to the cultural elements one might encounter when visiting the area around Trunyan.' },
+    { type: 'heading', level: 2, text: 'Day 4: Departure' },
+    { type: 'paragraph', text: 'After breakfast, enjoy a final opportunity for wildlife viewing or a nature walk before departing from Chitwan, carrying memories of incredible wildlife encounters and the serene beauty of the Terai region.' },
+    { type: 'paragraph', text: 'A nature safari in Chitwan National Park offers a thrilling and immersive experience in Nepal\'s natural wonders, providing a different kind of adventure than the mountainous landscapes of Trunyan Hill.' },
+    { type: 'heading', level: 2, text: 'Things to Know Before You Go' },
+    { type: 'list', items: [
+      '<strong>Duration:</strong> Typically 3-4 days.',
+      '<strong>Best Time to Visit:</strong> October to March for pleasant weather and good wildlife viewing.',
+      '<strong>Malaria Prevention:</strong> Consult your doctor about malaria precautions for the Terai region.',
+      '<strong>Park Regulations:</strong> Follow the guidelines provided by your guide and the park authorities.',
+    ]},
+    { type: 'heading', level: 2, text: 'What to Bring' },
+    { type: 'list', items: [
+      'Lightweight and comfortable clothing in neutral colors.',
+      'Sturdy walking shoes or boots.',
+      'Insect repellent.',
+      'Sunscreen, hat, and sunglasses.',
+      'Binoculars for wildlife viewing.',
+      'Camera with a good zoom lens.',
+    ]},
+    { type: 'paragraph', text: 'A wildlife safari in Chitwan National Park provides an unforgettable opportunity to connect with nature and witness incredible wildlife, offering a unique adventure in the heart of Nepal.' },
+  ],
+},
   {
   slug: 'nepali-dal-bhat-recipe',
   title: 'The Heart of Nepali Cuisine: Mastering Dal Bhat',
