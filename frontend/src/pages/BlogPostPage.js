@@ -13,10 +13,14 @@
  import tranquilboating from './images/tranquilboating.jpg';
  import rhododendrontrail from './images/rhododendrontrail.jpg';
  import reachedannapurna from './images/reachedannapurna.jpg'; 
+ import kathmandudurbar from './images/kathmandudurbar.jpeg';
+ import swayambhunath from './images/swayambhunath.jpg';
+ import bouddhanath from './images/bouddhanath.jpg';
+ import pashupatinath from './images/pashupatinath.jpg';
+ import bhaktapurdurbar from './images/bhaktapurdurbar.jpg';
+ import patandurbar from './images/patandurbar.jpg';
  
  
-  
-
  function BlogPostPage() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -42,11 +46,11 @@
             { type: 'paragraph', text: 'Similar to the journey to Trunyan, the initial travel involves immersing yourself in the local culture and preparing for the trek ahead. Pokhara itself offers opportunities to explore serene lakes and bustling markets before heading into the mountains.' },
             { type: 'heading', level: 2, text: 'The Trek to Base Camp' },
             { type: 'paragraph', text: 'The trail winds through charming villages inhabited by the welcoming Gurung communities, lush rhododendron forests that burst into color during spring, and alongside glacial rivers carving their way through the valleys. Each day of the trek unveils new vistas, from terraced fields to cascading waterfalls, with the majestic snow-capped peaks constantly in view.' },
-            { type: 'image', url: rhododendrontrail, alt: 'Trekking trail through rhododendron forest in Annapurna region', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+            { type: 'image', url: rhododendrontrail, alt: 'Trekking trail through rhododendron forest in Annapurna region', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
             { type: 'paragraph', text: 'As you ascend, the air gets crisper, and the landscape transforms, offering increasingly dramatic views of iconic mountains like Machhapuchhre (Fishtail) and Annapurna South. The feeling of walking amidst these giants is truly awe-inspiring, much like the panoramic views experienced from Trunyan Hill, albeit on a grander scale.' },
             { type: 'heading', level: 2, text: 'Reaching Annapurna Base Camp' },
             { type: 'paragraph', text: 'Arriving at the Annapurna Base Camp (4,130 meters / 13,550 feet) is a profoundly rewarding experience. Surrounded by towering peaks like Annapurna I, Annapurna South, Hiunchuli, and the iconic Machhapuchhre, you\'ll feel a deep sense of connection with the raw power and beauty of the Himalayas. The base camp itself is a small settlement nestled amongst these giants, offering unparalleled photographic opportunities, especially at sunrise and sunset.' },
-            { type: 'image', url: reachedannapurna, alt: 'Annapurna Base Camp surrounded by snow-capped mountains', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+            { type: 'image', url: reachedannapurna, alt: 'Annapurna Base Camp surrounded by snow-capped mountains', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
             { type: 'paragraph', text: 'The feeling of accomplishment upon reaching ABC mirrors the satisfaction of reaching the summit of Trunyan Hill, with the majestic mountain scenery serving as an unforgettable reward for your efforts.' },
             { type: 'heading', level: 2, text: 'Things to Know Before You Go' },
             { type: 'list', items: [
@@ -73,57 +77,52 @@
           ],
       },
       {
-   slug: 'kathmandu-valley-cultural-tour',
-   title: 'Immerse Yourself in the Rich Culture of Kathmandu Valley',
-   coverImage: kathmanduvalley,
-   author: 'Nepal Cultural Expeditions',
-   date: 'May 8, 2025',
-   categories: [{ name: 'Culture', slug: 'culture' }, { name: 'Cultural Tours', slug: 'cultural-tours' }],
-   tags: ['Nepal', 'Kathmandu', 'Temples', 'Tradition'],
-   fullContent: `
-     <p>Embark on a captivating cultural tour of the Kathmandu Valley, a UNESCO World Heritage site brimming with ancient temples, intricate palaces, and vibrant traditions. This journey, while different from the natural immersion of the Trunyan Hill hike, offers a deep dive into Nepal's rich historical and artistic heritage.</p>
-
-     <h2>Day 1: Kathmandu Durbar Square</h2>
-     <p>Begin your exploration at Kathmandu Durbar Square, a complex of palaces, courtyards, and temples that showcase the exquisite Newari architecture. Witness the Kumari Ghar, home to the living goddess, and explore the historical narratives etched in stone and wood.</p>
-     <img src="/images/kathmandu_durbar_square.jpg" alt="Kathmandu Durbar Square with ancient temples" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>Similar to discovering the local life around Trunyan, wandering through the Durbar Square provides a glimpse into the daily rhythms and cultural practices of the Kathmandu residents.</p>
-
-     <h2>Day 2: Swayambhunath & Boudhanath</h2>
-     <p>Discover the iconic Swayambhunath Stupa, perched atop a hill offering panoramic views of Kathmandu Valley. This ancient stupa, adorned with the watchful eyes of Buddha, is a significant Buddhist site. Later, visit Boudhanath Stupa, one of the largest spherical stupas in Nepal, surrounded by monasteries and prayer wheels.</p>
-     <img src="/images/boudhanath_stupa.jpg" alt="Boudhanath Stupa with prayer flags" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>The serene atmosphere and spiritual energy of these sites offer a different kind of uplifting experience compared to the physical exertion of the Trunyan hike.</p>
-
-     <h2>Day 3: Pashupatinath & Bhaktapur Durbar Square</h2>
-     <p>Visit Pashupatinath Temple, a sacred Hindu temple dedicated to Lord Shiva, located on the banks of the Bagmati River. Observe the traditional cremation ceremonies (from a respectful distance). In the afternoon, travel to Bhaktapur Durbar Square, a well-preserved ancient city showcasing medieval Newari art and architecture.</p>
-     <img src="/images/bhaktapur_durbar_square.jpg" alt="Bhaktapur Durbar Square with traditional buildings" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>Exploring the historical streets and artistic details of Bhaktapur offers a sense of stepping back in time, a different kind of exploration than the natural trails of Trunyan.</p>
-
-     <h2>Day 4: Patan Durbar Square & Departure</h2>
-     <p>Explore Patan Durbar Square, another architectural gem in the Kathmandu Valley, renowned for its fine arts and crafts. Visit the Patan Museum, housed in a former palace, to admire the exquisite metalwork and sculptures. Depending on your departure schedule, you might have time for some souvenir shopping.</p>
-     <img src="/images/patan_durbar_square.jpg" alt="Patan Durbar Square with intricate carvings" style="max-width: 100%; height: auto; margin-bottom: 15px;" />
-     <p>This cultural tour provides a deep insight into the rich heritage and artistic traditions of Nepal, offering a different yet equally enriching experience compared to the natural beauty encountered during a hike like Trunyan Hill.</p>
-
-     <h2>Things to Know Before You Go</h2>
-     <ul>
-       <li><strong>Duration:</strong> Typically 3-4 days.</li>
-       <li><strong>Best Time to Visit:</strong> Spring (March-May) and Autumn (September-November) for pleasant weather.</li>
-       <li><strong>Respectful Dress:</strong> Dress modestly when visiting religious sites (shoulders and knees covered).</li>
-       <li><strong>Guides:</strong> Hiring a local guide can enhance your understanding of the history and culture.</li>
-     </ul>
-
-     <h2>What to Bring</h2>
-     <ul>
-       <li>Comfortable walking shoes.</li>
-       <li>Lightweight and breathable clothing.</li>
-       <li>Sunscreen, hat, and sunglasses.</li>
-       <li>A light jacket or sweater for cooler evenings.</li>
-       <li>A small backpack for essentials.</li>
-       <li>Camera to capture the historical sites.</li>
-     </ul>
-
-     <p>This cultural tour of the Kathmandu Valley offers a fascinating contrast to the natural beauty of hikes like Trunyan Hill, providing a profound appreciation for Nepal's rich history, art, and traditions.</p>
-   `,
-  },
+  slug: 'kathmandu-valley-cultural-tour',
+  title: 'Immerse Yourself in the Rich Culture of Kathmandu Valley',
+  coverImage: kathmanduvalley,
+  author: 'Nepal Cultural Expeditions',
+  date: 'May 8, 2025',
+  categories: [{ name: 'Culture', slug: 'culture' }, { name: 'Cultural Tours', slug: 'cultural-tours' }],
+  tags: ['Nepal', 'Kathmandu', 'Temples', 'Tradition'],
+  fullContent: [
+    { type: 'paragraph', text: 'Embark on a captivating cultural tour of the Kathmandu Valley, a UNESCO World Heritage site brimming with ancient temples, intricate palaces, and vibrant traditions. This journey, while different from the natural immersion of the Trunyan Hill hike, offers a deep dive into Nepal\'s rich historical and artistic heritage.' },
+    { type: 'heading', level: 2, text: 'Day 1: Kathmandu Durbar Square' },
+    { type: 'paragraph', text: 'Begin your exploration at Kathmandu Durbar Square, a complex of palaces, courtyards, and temples that showcase the exquisite Newari architecture. Witness the Kumari Ghar, home to the living goddess, and explore the historical narratives etched in stone and wood.' },
+    { type: 'image', url: kathmandudurbar, alt: 'Kathmandu Durbar Square with ancient temples', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'Similar to discovering the local life around Trunyan, wandering through the Durbar Square provides a glimpse into the daily rhythms and cultural practices of the Kathmandu residents.' },
+    { type: 'heading', level: 2, text: 'Day 2: Swayambhunath & Boudhanath' },
+    { type: 'paragraph', text: 'Discover the iconic Swayambhunath Stupa, perched atop a hill offering panoramic views of Kathmandu Valley. This ancient stupa, adorned with the watchful eyes of Buddha, is a significant Buddhist site. Later, visit Boudhanath Stupa, one of the largest spherical stupas in Nepal, surrounded by monasteries and prayer wheels.' },
+    { type: 'image', url: swayambhunath, alt: 'Swayambhunath Stupa', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: bouddhanath, alt: 'Boudhanath Stupa', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'The serene atmosphere and spiritual energy of these sites offer a different kind of uplifting experience compared to the physical exertion of the Trunyan hike.' },
+    { type: 'heading', level: 2, text: 'Day 3: Pashupatinath & Bhaktapur Durbar Square' },
+    { type: 'paragraph', text: 'Visit Pashupatinath Temple, a sacred Hindu temple dedicated to Lord Shiva, located on the banks of the Bagmati River. Observe the traditional cremation ceremonies (from a respectful distance). In the afternoon, travel to Bhaktapur Durbar Square, a well-preserved ancient city showcasing medieval Newari art and architecture.' },
+    { type: 'image', url: pashupatinath, alt: 'Pashupatinath', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: bhaktapurdurbar, alt: 'Bhaktapur Durbar Square with traditional buildings', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'Exploring the historical streets and artistic details of Bhaktapur offers a sense of stepping back in time, a different kind of exploration than the natural trails of Trunyan.' },
+    { type: 'heading', level: 2, text: 'Day 4: Patan Durbar Square & Departure' },
+    { type: 'paragraph', text: 'Explore Patan Durbar Square, another architectural gem in the Kathmandu Valley, renowned for its fine arts and crafts. Visit the Patan Museum, housed in a former palace, to admire the exquisite metalwork and sculptures. Depending on your departure schedule, you might have time for some souvenir shopping.' },
+    { type: 'image', url: patandurbar, alt: 'Patan Durbar Square with intricate carvings', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
+    { type: 'paragraph', text: 'This cultural tour provides a deep insight into the rich heritage and artistic traditions of Nepal, offering a different yet equally enriching experience compared to the natural beauty encountered during a hike like Trunyan Hill.' },
+    { type: 'heading', level: 2, text: 'Things to Know Before You Go' },
+    { type: 'list', items: [
+      '<strong>Duration:</strong> Typically 3-4 days.',
+      '<strong>Best Time to Visit:</strong> Spring (March-May) and Autumn (September-November) for pleasant weather.',
+      '<strong>Respectful Dress:</strong> Dress modestly when visiting religious sites (shoulders and knees covered).',
+      '<strong>Guides:</strong> Hiring a local guide can enhance your understanding of the history and culture.',
+    ]},
+    { type: 'heading', level: 2, text: 'What to Bring' },
+    { type: 'list', items: [
+      'Comfortable walking shoes.',
+      'Lightweight and breathable clothing.',
+      'Sunscreen, hat, and sunglasses.',
+      'A light jacket or sweater for cooler evenings.',
+      'A small backpack for essentials.',
+      'Camera to capture the historical sites.',
+    ]},
+    { type: 'paragraph', text: 'This cultural tour of the Kathmandu Valley offers a fascinating contrast to the natural beauty of hikes like Trunyan Hill, providing a profound appreciation for Nepal\'s rich history, art, and traditions.' },
+  ],
+},
   {
    slug: 'chitwan-national-park-nature-safari',
    title: 'Experience Wildlife and Nature in Chitwan National Park',
