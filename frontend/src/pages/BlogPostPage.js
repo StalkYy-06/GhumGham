@@ -36,6 +36,16 @@
  import jeepsafari from './images/jeepsafari.jpg';
  import junglewalkbardia from './images/junglewalkbardia.jpg';
  import tharuvillage from './images/tharuvillage.jpg';
+ import everesttrek from './images/everesttrek.jpg';
+ import gokyolake from './images/gokyolake.jpg';
+ import pikeypeak from './images/pikeypeak.jpg';
+ import shorttrek from './images/shortertrek.webp';
+ import momoingredients from './images/momoingredients.webp';
+ import foldingmomo from './images/foldingmomo.jpeg';
+ import cookingnewaridishes from './images/cookingnewaridishes.jpeg';
+ import newariplatter from './images/newariplatter.jpg';
+ 
+ 
  
  function BlogPostPage() {
   const { slug } = useParams();
@@ -254,10 +264,10 @@
       '<strong>Steaming to perfection:</strong> Understand the timing and method for cooking momos to juicy tenderness.',
       '<strong>Making traditional dipping sauces (achar):</strong> Learn to prepare the spicy and tangy tomato or sesame seed-based dipping sauces that complement momos perfectly.',
     ]},
-    { type: 'image', url: '/images/momo_ingredients.jpg', alt: 'Ingredients for making Nepali momos', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: momoingredients, alt: 'Ingredients for making Nepali momos', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
     { type: 'heading', level: 2, text: 'Class Experience:' },
     { type: 'paragraph', text: 'Our hands-on cooking class starts with an introduction to the ingredients and the cultural significance of momos in Nepal. You\'ll get to prepare your own dough and fillings, practice different folding methods under the guidance of an experienced instructor, and finally, enjoy the delicious momos you\'ve made.' },
-    { type: 'image', url: '/images/momo_folding.jpg', alt: 'Hands-on momo folding lesson', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: foldingmomo, alt: 'Hands-on momo folding lesson', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
     { type: 'paragraph', text: 'It\'s a fun and interactive way to experience Nepali cuisine and take home a valuable culinary skill, offering a different kind of adventure than a trek but an enriching cultural one nonetheless.' },
     { type: 'heading', level: 2, text: 'Optional: Momo Recipe (for home practice)' },
     { type: 'heading', level: 3, text: 'Ingredients:' },
@@ -277,7 +287,6 @@
       'Fresh coriander leaves, chopped',
       'Salt and pepper to taste',
     ]},
-    { type: 'image', url: '/images/chicken_momo_filling.jpg', alt: 'Chicken momo filling ingredients', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
     { type: 'heading', level: 3, text: 'Instructions:' },
     { type: 'list', items: [
       '<strong>Make the dough:</strong> In a large bowl, mix the flour and salt. Gradually add water and oil, kneading until you form a smooth and firm dough. Cover and let it rest for 30 minutes.',
@@ -311,10 +320,10 @@
       '<strong>Achar (Pickles):</strong> A wide variety of tangy and spicy pickles made from vegetables, fruits, and spices, an essential part of the Newari meal.',
       '<strong>Tongba:</strong> A traditional millet-based alcoholic beverage, often enjoyed during social gatherings and festivals.',
     ]},
-    { type: 'image', url: '/images/newari_food_platter.jpg', alt: 'A platter of various Newari dishes', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: newariplatter, alt: 'A platter of various Newari dishes', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
     { type: 'heading', level: 2, text: 'Experiencing Newari Food' },
     { type: 'paragraph', text: 'To truly experience Newari cuisine, venture into the old city areas of Kathmandu, Patan, and Bhaktapur, where traditional Newari restaurants and eateries abound. Look for local "bhattis" (small traditional restaurants) that serve authentic Newari dishes. Participating in a Newari cooking class can also provide a deeper understanding of the ingredients and preparation methods.' },
-    { type: 'image', url: '/images/newari_cooking_class.jpg', alt: 'Learning to cook Newari dishes', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: cookingnewaridishes, alt: 'Learning to cook Newari dishes', style: { maxWidth: '80%', height: 'auto', marginBottom: '15px' } },
     { type: 'heading', level: 2, text: 'The Cultural Significance' },
     { type: 'paragraph', text: 'Newari food is deeply intertwined with the culture and traditions of the Newari community. Many dishes have ritualistic significance and are prepared during festivals and special occasions. Sharing a Newari meal is often a communal experience, reflecting the strong social bonds within the community.' },
     { type: 'paragraph', text: 'Embark on this culinary adventure to savor the unique flavors and experience the rich cultural heritage of the Newari people, a vital part of Nepal\'s diverse tapestry.' },
@@ -333,13 +342,13 @@
     { type: 'heading', level: 2, text: 'Popular Hikes:' },
     { type: 'list', items: [
       '<strong>Everest Base Camp Trek:</strong> The classic trek to the foot of Mount Everest, offering breathtaking scenery and a profound sense of accomplishment.',
-      { type: 'image', url: '/images/everest_base_camp_trek.jpg', alt: 'Trekkers on the Everest Base Camp trail', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: everesttrek, alt: 'Trekkers on the Everest Base Camp trail', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
       '<strong>Gokyo Lakes Trek:</strong> Explore the beautiful turquoise Gokyo Lakes and enjoy panoramic mountain views, including Everest, Lhotse, Makalu, and Cho Oyu.',
-      { type: 'image', url: '/images/gokyo_lakes_trek.jpg', alt: 'Turquoise Gokyo Lakes with Himalayan peaks', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: gokyolake, alt: 'Turquoise Gokyo Lakes with Himalayan peaks', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
       '<strong>Pikey Peak Trek:</strong> Offers stunning views of Everest and other Himalayan giants without the high altitude and longer duration of the EBC trek.',
-      { type: 'image', url: '/images/pikey_peak_view.jpg', alt: 'Panoramic view of Everest from Pikey Peak', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: pikeypeak, alt: 'Panoramic view of Everest from Pikey Peak', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
       '<strong>Short Everest View Treks:</strong> Ideal for those with limited time, these treks provide excellent views of the Everest range from viewpoints like Namche Bazaar and Tengboche Monastery.',
-      { type: 'image', url: '/images/everest_view_trek.jpg', alt: 'View of Everest from a shorter trek viewpoint', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: shorttrek, alt: 'View of Everest from a shorter trek viewpoint', style: { maxWidth: '90%', height: 'auto', marginBottom: '15px' } },
     ]},
     { type: 'heading', level: 2, text: 'Experiencing the Everest Region' },
     { type: 'paragraph', text: 'Trekking in the Everest region is not just about the mountains; it\'s also an opportunity to experience the unique Sherpa culture, visit ancient monasteries, and witness the resilience of the local communities living in this challenging environment. The warmth and hospitality of the Sherpa people are a highlight of any trek in this region.' },
