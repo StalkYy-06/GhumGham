@@ -16,6 +16,7 @@ import EditProfilePage from './pages/editProfile';
 import About from './pages/About';
 import BlogLandingPage from './pages/BlogLandingPage';
 import BlogCategoryPage from './pages/BlogCategoryPage';
+import CommentSection from './components/commentSection';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogLandingPage />} />
           <Route path="/category/:categoryId" element={<BlogCategoryPage />} />
+          <Route path="/commentSection" element={<CommentSection />} />
         </Routes>
       </Router>
     </AuthProvider>

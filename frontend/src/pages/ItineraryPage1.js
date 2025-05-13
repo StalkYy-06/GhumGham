@@ -1,6 +1,7 @@
 // ItineraryPage1.js
 import React from 'react';
 import './Itenarypage.css';
+import CommentSection from '../components/commentSection';
 
 const itineraryData = [
   {
@@ -49,6 +50,9 @@ const itineraryData = [
 ];
 
 function ItineraryPage1() {
+
+  const itineraryId = 'Iti-1';
+
   return (
     <div className="itinerary-container">
       <h1 className="itinerary-title">Itinerary Page 1: Muktinath Temple Tour</h1>
@@ -62,6 +66,7 @@ function ItineraryPage1() {
           </ul>
         </div>
       ))}
+      <CommentSection itineraryId={itineraryId} />
     </div>
   );
 }
