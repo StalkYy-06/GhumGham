@@ -31,6 +31,11 @@
  import worldpeacepagoda from './images/worldpeacepagoda.jpg';
  import boatsonphewa from './images/boatsonphewa.jpg';
  import begnaslake from './images/begnaslake.webp';
+ import canoebardia from './images/canoebardia.jpeg';
+ import elephantsafaribardiya from './images/elephantsafaribardiya.jpg';
+ import jeepsafari from './images/jeepsafari.jpg';
+ import junglewalkbardia from './images/junglewalkbardia.jpg';
+ import tharuvillage from './images/tharuvillage.jpg';
  
  function BlogPostPage() {
   const { slug } = useParams();
@@ -368,17 +373,17 @@
     { type: 'heading', level: 2, text: 'Wildlife Activities:' },
     { type: 'list', items: [
       '<strong>Jeep Safari:</strong> Explore the park\'s trails in an open jeep for the best wildlife viewing opportunities. Experienced guides will help you spot animals and interpret the jungle\'s signs.',
-      { type: 'image', url: '/images/bardia_jeep_safari.jpg', alt: 'Jeep safari in Bardia National Park', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: jeepsafari, alt: 'Jeep safari in Bardia National Park', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
       '<strong>Elephant-back Safari:</strong> A unique way to get close to rhinos and other large mammals while traversing through the tall grasslands.',
-      { type: 'image', url: '/images/bardia_elephant_safari.jpg', alt: 'Elephant-back safari for rhino spotting in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: elephantsafaribardiya, alt: 'Elephant-back safari for rhino spotting in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
       '<strong>Jungle Walk:</strong> Guided walks through the forest provide opportunities to spot birds, smaller wildlife, and learn about the park\'s ecosystem up close.',
-      { type: 'image', url: '/images/bardia_jungle_walk.jpg', alt: 'Guided jungle walk in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: junglewalkbardia, alt: 'Guided jungle walk in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
       '<strong>Canoe Ride:</strong> Explore the rivers and look for crocodiles, gharials, and various aquatic bird species. The peaceful glide along the water offers a different perspective of the park.',
-      { type: 'image', url: '/images/bardia_canoe_ride.jpg', alt: 'Canoe ride on a river in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+      { type: 'image', url: canoebardia, alt: 'Canoe ride on a river in Bardia', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
     ]},
     { type: 'heading', level: 2, text: 'Experiencing Bardia\'s Culture' },
     { type: 'paragraph', text: 'Bardia also offers opportunities to interact with the local Tharu community. Visit Tharu villages, witness their traditional dances, and learn about their unique way of life, which is deeply connected to the surrounding jungle.' },
-    { type: 'image', url: '/images/tharu_village_bardia.jpg', alt: 'Tharu village in the Bardia region', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
+    { type: 'image', url: tharuvillage, alt: 'Tharu village in the Bardia region', style: { maxWidth: '100%', height: 'auto', marginBottom: '15px' } },
     { type: 'heading', level: 2, text: 'Things to Know Before You Go' },
     { type: 'list', items: [
       '<strong>Best Time to Visit:</strong> October to April for pleasant weather and good wildlife sightings.',

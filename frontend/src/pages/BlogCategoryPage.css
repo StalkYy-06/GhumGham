@@ -1,26 +1,14 @@
- .category-page {
-  text-align: center;
-  padding: 40px 20px;
- }
-
- .category-page h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 30px;
- }
-
- .category-grid {
+.category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 30px;
   padding: 0 20px;
- }
+}
 
- .category-item {
+.category-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-decoration: none;
   color: #333;
   border-radius: 8px;
@@ -28,33 +16,42 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   background-color: #fff;
- }
+}
 
- .category-item:hover {
+.category-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
- }
+}
 
- .category-item img {
+.category-item .image-container {
   width: 100%;
-  height: auto;
+  height: 180px; /* Set your desired fixed height */
+  overflow: hidden;
   border-radius: 8px 8px 0 0;
-  display: block;
- }
+  display: flex; /* Use flexbox for alignment */
+}
 
- .category-item h3 {
+.category-item .image-container img {
+  flex-grow: 1; /* Allow the image to grow and fill the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-item h3 {
   font-size: 1.2rem;
   margin-top: 15px;
   margin-bottom: 20px;
   padding: 0 15px;
   text-align: center;
- }
+}
 
- @media (max-width: 600px) {
+@media (max-width: 600px) {
   .category-grid {
-   grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   .category-item {
-   align-items: stretch;
+    align-items: stretch;
   }
- }
+}
