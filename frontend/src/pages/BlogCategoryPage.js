@@ -1,51 +1,39 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+
 import './BlogCategoryPage.css';
+import { Link } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
 function BlogCategoryPage() {
-  const { categoryId } = useParams();  // Get the categoryId from the URL
-
-  const getCategoryContent = (category) => {
-    switch (category) {
-      case 'adventure':
-        return {
-          title: 'Adventure and Travels',
-          content: 'Content related to Adventure and Travel. Explore the world of adventure tourism and travel tips.',
-        };
-      case 'food':
-        return {
-          title: 'Food and Culture',
-          content: 'Content related to Food & Culture. Discover local dishes, food festivals, and culinary traditions.',
-        };
-      case 'nature':
-        return {
-          title: 'Nature Escape',
-          content: 'Content related to Nature Escapes. Learn about beautiful natural destinations and outdoor adventures.',
-        };
-      default:
-        return {
-          title: 'Unknown Category',
-          content: 'Sorry, we could not find content for this category.',
-        };
-    }
-  };
-
-  const { title, content } = getCategoryContent(categoryId); // Get content based on categoryId
-
   return (
-    <div>
+    <>
       <Header />
-      <div className='full'>
-        <div className="category-page">
-          <h2>{title}</h2>
-          <p>{content}</p>
+      <div className="category-page">
+        <h1 className="page-title">Explore Our Blog Categories</h1>
+        <div className="category-grid">
+          <Link to="/category/adventure" className="category-item">
+            <div className="image-container">
+              <img src="/AdventureandTravel.jpg" alt="Adventure and Travels" />
+            </div>
+            <h3>Adventure and Travels</h3>
+          </Link>
+          <Link to="/category/food" className="category-item">
+            <div className="image-container">
+              <img src="/FoodandCulture.jpg" alt="Food and Culture" />
+            </div>
+            <h3>Food and Culture</h3>
+          </Link>
+          <Link to="/category/nature" className="category-item">
+            <div className="image-container">
+              <img src="/Nepscape.jpg" alt="Nature Escape" />
+            </div>
+            <h3>Nature Escape</h3>
+          </Link>
         </div>
-        <Footer />
       </div>
-    </div>
-
+      <Footer />
+    </>
 
   );
 }

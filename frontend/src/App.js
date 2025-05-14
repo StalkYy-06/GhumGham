@@ -14,11 +14,16 @@ import GuidesPage from './pages/GuidesPage';
 import GuideDetailsPage from './pages/GuideDetailsPage';
 import EditProfilePage from './pages/editProfile';
 import About from './pages/About';
-import BlogLandingPage from './pages/BlogLandingPage';
 import BlogCategoryPage from './pages/BlogCategoryPage';
+import AdventureCategoryPage from './pages/AdventureCategoryPage';
+import FoodCategoryPage from './pages/FoodCategoryPage';
+import NatureCategoryPage from './pages/NatureCategoryPage';
+import BlogPostPage from './pages/BlogPostPage'; 
 import CommentSection from './components/commentSection';
 
-function App() {
+
+
+ function App() {
   return (
     <AuthProvider>
       <Router>
@@ -37,9 +42,13 @@ function App() {
           <Route path="/guides/:id" element={<GuideDetailsPage />} />
           <Route path="/edit-profile" element={<EditProfilePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<BlogLandingPage />} />
-          <Route path="/category/:categoryId" element={<BlogCategoryPage />} />
+          <Route path="/blog" element={<BlogCategoryPage />} /> {/* Main blog page with categories */}
+          <Route path="/category/adventure" element={<AdventureCategoryPage />} /> {/* Adventure post previews */}
+          <Route path="/category/food" element={<FoodCategoryPage />} /> {/* Food post previews */}
+          <Route path="/category/nature" element={<NatureCategoryPage />} /> {/* Nature post previews */}
+          <Route path="/blog/:slug" element={<BlogPostPage />} /> {/* Route for individual blog posts */}
           <Route path="/commentSection" element={<CommentSection />} />
+
         </Routes>
       </Router>
     </AuthProvider>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import GuideCard from '../pages/GuideCard';
 import './GuidesSection.css';
 import { Link } from 'react-router-dom';
@@ -45,6 +46,7 @@ function GuidesSection() {
       expertise: 'Trekking, Nature Walks, Bird Watching',
       rating: 4.7,
     },
+
   ];
 
   return (
