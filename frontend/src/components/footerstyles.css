@@ -1,21 +1,21 @@
-/* Footer container */
+/* Overall footer layout */
 .footer {
   background-color: #121212;
   color: #ffffff;
   padding: 40px 0;
   font-family: "Arial", sans-serif;
   width: 100%;
-  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.4); /* Top shadow */
 }
 
-/* Inner container for layout */
+/* Internal content wrapper */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Top section with Follow Us and Contact Us */
+/* Upper layout: Follow Us + Contact Us */
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -25,6 +25,7 @@
   margin-bottom: 30px;
 }
 
+/* Footer sections (Follow / Contact) */
 .footer-section {
   min-width: 200px;
 }
@@ -36,12 +37,13 @@
   color: #cf0f6a;
 }
 
-/* Social media icons */
+/* Social icons container */
 .footer-icons {
   display: flex;
   gap: 15px;
 }
 
+/* Animation on hover */
 .footer-icons a {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -51,6 +53,7 @@
   transform: scale(1.1);
 }
 
+/* Specific icon styles */
 .logo_ig,
 .logo_fb,
 .logo_X {
@@ -59,7 +62,7 @@
   object-fit: contain;
 }
 
-/* Contact info section */
+/* Contact text */
 .contact-info {
   text-align: right;
 }
@@ -70,7 +73,7 @@
   margin: 5px 0;
 }
 
-/* Bottom copyright bar */
+/* Bottom copyright */
 .footer-bottom {
   text-align: center;
   font-size: 12px;
@@ -79,7 +82,7 @@
   color: #e8f5e9;
 }
 
-/* Responsive design */
+/* Tablet responsive */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
@@ -100,6 +103,7 @@
   }
 }
 
+/* Mobile responsive */
 @media (max-width: 480px) {
   .footer {
     padding: 20px 0;
