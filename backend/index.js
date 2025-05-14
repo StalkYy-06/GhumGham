@@ -30,7 +30,7 @@ app.use(cors({
 }));
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "your_session_secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
@@ -57,6 +57,7 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/destinations", require("./routes/destinations"));
 app.use("/api/profiles", require("./routes/profiles"));
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/comments", require("./routes/comments"));
 
 // Google OAuth Routes
 app.get("/auth/google",

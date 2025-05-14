@@ -7,6 +7,7 @@
   background-color: white;
   margin: 0 auto;
   flex-wrap: wrap;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo container */
