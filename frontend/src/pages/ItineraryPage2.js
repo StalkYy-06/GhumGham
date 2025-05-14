@@ -1,6 +1,9 @@
 // ItineraryPage2.js
 import React from 'react';
 import './Itenarypage.css';
+import CommentSection from '../components/commentSection';
+import Footer from '../components/footer.js';
+import Header from '../components/header.js';
 
 const itineraryData = [
   {
@@ -56,19 +59,27 @@ const itineraryData = [
 ];
 
 function ItineraryPage2() {
+
+  const itineraryId = 'Iti-2';
+
   return (
-    <div className="itinerary-container">
-      <h1 className="itinerary-title">Itinerary Page 2: Everest Base Camp Trek</h1>
-      {itineraryData.map((day, index) => (
-        <div key={index} className="itinerary-day">
-          <h2 className="day-heading">{day.day}: {day.title}</h2>
-          <ul className="activity-list">
-            {day.activities.map((activity, idx) => (
-              <li key={idx} className="activity-item">{activity}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div>
+      <Header />
+      <div className="itinerary-container">
+        <h1 className="itinerary-title">Itinerary Page 2: Everest Base Camp Trek</h1>
+        {itineraryData.map((day, index) => (
+          <div key={index} className="itinerary-day">
+            <h2 className="day-heading">{day.day}: {day.title}</h2>
+            <ul className="activity-list">
+              {day.activities.map((activity, idx) => (
+                <li key={idx} className="activity-item">{activity}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <CommentSection itineraryId={itineraryId} />
+      </div>
+      <Footer />
     </div>
   );
 }

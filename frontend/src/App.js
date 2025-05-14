@@ -19,6 +19,8 @@ import AdventureCategoryPage from './pages/AdventureCategoryPage';
 import FoodCategoryPage from './pages/FoodCategoryPage';
 import NatureCategoryPage from './pages/NatureCategoryPage';
 import BlogPostPage from './pages/BlogPostPage'; 
+import CommentSection from './components/commentSection';
+
 
 
  function App() {
@@ -45,6 +47,7 @@ import BlogPostPage from './pages/BlogPostPage';
           <Route path="/category/food" element={<FoodCategoryPage />} /> {/* Food post previews */}
           <Route path="/category/nature" element={<NatureCategoryPage />} /> {/* Nature post previews */}
           <Route path="/blog/:slug" element={<BlogPostPage />} /> {/* Route for individual blog posts */}
+          <Route path="/commentSection" element={<CommentSection />} />
 
         </Routes>
       </Router>
