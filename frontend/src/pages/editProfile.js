@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import './ProfileStyle.css';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const BASE_URL = 'http://localhost:5000';
 
@@ -134,63 +136,68 @@ function EditProfilePage() {
     };
 
     return (
-        <div className="profile-page">
-            <h1>Edit Profile</h1>
-            {error && <p className="error">{error}</p>}
-            <div className="profile-form">
-                <div className="form-group">
-                    <label>Avatar</label>
-                    <input
-                        type="file"
-                        accept="image/png,image/jpeg,image/gif"
-                        onChange={handleAvatarUpload}
-                    />
-                    {preview && (
-                        <img
-                            src={preview}
-                            alt="Avatar Preview"
-                            className="avatar-preview"
-                            loading="lazy"
+        <div>
+            <Header />
+            <div className="profile-page">
+                <h1>Edit Profile</h1>
+                {error && <p className="error">{error}</p>}
+                <div className="profile-form">
+                    <div className="form-group">
+                        <label>Avatar</label>
+                        <input
+                            type="file"
+                            accept="image/png,image/jpeg,image/gif"
+                            onChange={handleAvatarUpload}
                         />
-                    )}
-                </div>
-                <div className="form-group">
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={profile.name}
-                        onChange={handleChange}
-                        placeholder="Enter your name"
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={profile.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Bio</label>
-                    <textarea
-                        name="bio"
-                        value={profile.bio}
-                        onChange={handleChange}
-                        placeholder="Tell us about yourself"
-                        rows="4"
-                    />
-                </div>
-                <div className="form-actions">
-                    <button onClick={handleSave} className="save-button">Save</button>
-                    <button onClick={() => navigate('/profile')} className="cancel-button">Cancel</button>
-                    <button onClick={handleReset} className="reset-button">Reset</button>
+                        {preview && (
+                            <img
+                                src={preview}
+                                alt="Avatar Preview"
+                                className="avatar-preview"
+                                loading="lazy"
+                            />
+                        )}
+                    </div>
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={profile.name}
+                            onChange={handleChange}
+                            placeholder="Enter your name"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={profile.email}
+                            onChange={handleChange}
+                            placeholder="Enter your email"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Bio</label>
+                        <textarea
+                            name="bio"
+                            value={profile.bio}
+                            onChange={handleChange}
+                            placeholder="Tell us about yourself"
+                            rows="4"
+                        />
+                    </div>
+                    <div className="form-actions">
+                        <button onClick={handleSave} className="save-button">Save</button>
+                        <button onClick={() => navigate('/profile')} className="cancel-button">Cancel</button>
+                        <button onClick={handleReset} className="reset-button">Reset</button>
+                    </div>
                 </div>
             </div>
+            <Footer />
         </div>
+
     );
 }
 

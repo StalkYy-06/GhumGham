@@ -9,10 +9,10 @@ import anna from './images/anna.jpg';
 import background from './images/background.jpg';
 import backgroundtwo from './images/background2.jpg';
 import backgroundthree from './images/background3.jpg';
-
 import { AuthContext } from '../context/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
-import GuideCard from '../components/GuideCard.js';
+import GuideCard from './GuideCard.js';
+
 
 // Hero Component with dynamic background change
 function Hero() {

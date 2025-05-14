@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './BlogCategoryPage.css';
 import { Link } from 'react-router-dom';
 import Header from '../components/header';
@@ -33,6 +34,7 @@ function BlogCategoryPage() {
       </div>
       <Footer />
     </>
+
   );
 }
 
