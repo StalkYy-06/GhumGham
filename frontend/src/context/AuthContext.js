@@ -19,7 +19,8 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('userProfile', JSON.stringify({
                 id: userData.id,
                 name: userData.name,
-                email: userData.email
+                email: userData.email,
+                role: userData.role
             }));
         } catch (err) {
             setError('Failed to login');
