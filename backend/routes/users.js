@@ -26,7 +26,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 router.get("/", async (req, res) => {
     try {
-        const results = await query("SELECT id, name, email FROM users");
+        const results = await query("SELECT id, name, email ,role FROM users");
         res.json({ user: results });
     } catch (err) {
         console.error("Error fetching users:", err);
@@ -38,7 +38,7 @@ router.get("/profile", isAuthenticated, async (req, res) => {
     try {
         const userId = req.session.user.id;
         const results = await query(
-            "SELECT id, name, email, bio, avatar_url FROM users WHERE id = ?",
+            "SELECT id, name, email, bio, avatar_url, role FROM users WHERE id = ?",
             [userId]
         );
 

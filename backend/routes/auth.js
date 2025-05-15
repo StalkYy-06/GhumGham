@@ -116,7 +116,8 @@ router.post("/login", async (req, res) => {
             name: user.name,
             email: user.email,
             bio: user.bio,
-            avatar_url: user.avatar_url
+            avatar_url: user.avatar_url,
+            role: user.role
         };
 
         // Store user in session
