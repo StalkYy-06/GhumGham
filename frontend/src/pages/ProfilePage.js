@@ -120,9 +120,9 @@ function ProfilePage() {
                         <p>{profile.bio || "Not set"}</p>
                     </div>
                     <div className="detail-actions">
-                        <button onClick={() => navigate('/edit-profile')} className="edit-button">Edit Profile</button>
-                        <button onClick={handleDelete} className="delete-button">Delete Profile</button>
-                        <button onClick={handleLogout} className="logout-button">Log Out</button>
+                        <button onClick={() => navigate('/edit-profile')} className="edit-button_p">Edit Profile</button>
+                        <button onClick={handleDelete} className="delete-button_p">Delete Profile</button>
+                        <button onClick={handleLogout} className="logout-button_p">Log Out</button>
                     </div>
                 </div>
             </div>
