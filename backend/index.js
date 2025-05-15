@@ -58,6 +58,7 @@ app.use("/api/destinations", require("./routes/destinations"));
 app.use("/api/profiles", require("./routes/profiles"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/comments", require("./routes/comments"));
+app.use("/api/booking", require("./routes/booking"));
 
 // Google OAuth Routes
 app.get("/auth/google",
