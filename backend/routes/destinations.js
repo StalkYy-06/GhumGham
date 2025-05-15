@@ -174,8 +174,9 @@ router.put('/update/:id', upload.single('destinations_photo'), async (req, res) 
     }
 });
 
+
 // DELETE destination (admin only)
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', adminAuth, async (req, res) => {
     const { id } = req.params;
 
     // Debug: Log session and user details to verify middleware
