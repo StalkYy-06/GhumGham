@@ -24,8 +24,8 @@ import DestinationsList from './pages/destinationsList';
 import Destinations from './pages/destinations';
 import EditDestinations from './pages/editDestinations';
 import AddDestinations from './pages/addDestinations';
-
-
+import AccountSettings from './pages/AccountSettings';
+import Booking from './pages/bookings';
 
 function App() {
   return (
@@ -56,7 +56,8 @@ function App() {
           <Route path="/destinations/:id" element={< Destinations />} />
           <Route path="/editDestinations/:id" element={< EditDestinations />} />
           <Route path="/addDestinations" element={< AddDestinations />} />
-
+          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/bookings" element={<Booking />} />
         </Routes>
       </Router>
     </AuthProvider>

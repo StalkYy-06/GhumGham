@@ -113,7 +113,7 @@ const Login = () => {
                         )}
 
                     </div>
-                    {error && <p className="error">{error}</p>}
+                    {error && <p className="error_l">{error}</p>}
                     <div className='forgot-password'>
                         <Link to="/forget-password">
                             <p>Forgot password?</p>

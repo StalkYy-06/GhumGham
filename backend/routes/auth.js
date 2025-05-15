@@ -241,6 +241,23 @@ router.post("/reset-password", async (req, res) => {
     }
 });
 
+router.get('/user', async (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'Not authenticated' });
+    }
+
+    try {
+        const user = req.session.user;
+        res.json({
+            id: user.id,
+            role: user.role
+        });
+    } catch (err) {
+        console.error('Error fetching user data:', err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
 // Check if user is authenticated
 router.get("/check", (req, res) => {
     if (req.session && req.session.user) {
