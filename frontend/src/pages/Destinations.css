@@ -262,3 +262,14 @@
     font-size: 1.1em;
   }
 }
+
+@media (max-width: 768px) {
+  .destination-name_2 {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 480px) {
+  .destination-name_2 {
+    font-size: 2em;
+  }
+}

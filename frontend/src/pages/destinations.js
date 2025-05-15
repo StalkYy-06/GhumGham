@@ -52,9 +52,20 @@ function Destinations() {
         fetchDestination();
     }, [id]);
 
-    const handleBookNow = () => {
-        // Placeholder for booking logic; replace with actual navigation or API call
-        navigate(`/book/${id}`);
+    const handleBookNow = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/booking/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ destination_id: id, booked_date: new Date().toISOString().split('T')[0] }),
+            });
+            if (!response.ok) throw new Error('Failed to create booking');
+            alert('Booking created successfully!');
+            navigate('/bookings');
+        } catch (err) {
+            alert(`Error: ${err.message}`);
+        }
     };
 
     if (loading) return <div className="loading">Loading...</div>;
