@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 const BASE_URL = 'http://localhost:5000';
 
 function ProfilePage() {
-    const { isAuthenticated, user, login } = useContext(AuthContext);
+    const { isAuthenticated, user, login, logout } = useContext(AuthContext); // Added logout from AuthContext
     const navigate = useNavigate();
     const [profile, setProfile] = useState({
         name: "",
@@ -57,7 +57,6 @@ function ProfilePage() {
         if (isAuthenticated) fetchProfile();
     }, [isAuthenticated, login, navigate]);
 
-
     // Delete profile
     const handleDelete = async () => {
         setError('');
@@ -75,9 +74,22 @@ function ProfilePage() {
         }
     };
 
+    // Handle logout
+    const handleLogout = () => {
+        setError('');
+        try {
+            logout(); // Call logout from AuthContext
+            localStorage.removeItem('userProfile');
+            navigate('/login');
+        } catch (err) {
+            setError('Failed to log out');
+            console.error('Logout failed:', err);
+        }
+    };
+
     return (
         <div>
-            < Header />
+            <Header />
             <div className="profile-page">
                 <h1>User Profile</h1>
                 {error && <p className="error">{error}</p>}
@@ -110,12 +122,12 @@ function ProfilePage() {
                     <div className="detail-actions">
                         <button onClick={() => navigate('/edit-profile')} className="edit-button">Edit Profile</button>
                         <button onClick={handleDelete} className="delete-button">Delete Profile</button>
+                        <button onClick={handleLogout} className="logout-button">Log Out</button>
                     </div>
                 </div>
             </div>
             <Footer />
         </div>
-
     );
 }
 
