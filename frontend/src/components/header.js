@@ -5,7 +5,8 @@ import './headerstyles.css'; // Importing related CSS
 
 // Header component definition
 function Header() {
-    const { isAuthenticated, logout } = useContext(AuthContext); // Destructuring auth state and logout function
+    const { isAuthenticated, user } = useContext(AuthContext); // Removed unused logout
+    const BASE_URL = 'http://localhost:5000';
 
     return (
         <header className="header">
@@ -32,12 +33,16 @@ function Header() {
 
                 {/* Conditional rendering based on auth state */}
                 {isAuthenticated ? (
-                    // If logged in: Show profile and logout
+                    // If logged in: Show profile
                     <div className="profile-container">
                         <Link to="/profile" className="profile-link">
-                            <span className="profile-icon">👤</span>
+                            <img
+                                src={user.avatarUrl ? `${BASE_URL}${user.avatarUrl}` : '/default-avatar.png'}
+                                alt="User Avatar"
+                                className="avatar"
+                            />
+                            <span className="username">{user.name || 'Guest'}</span>
                         </Link>
-                        <button onClick={logout} className="sign-in-button">Log out</button>
                     </div>
                 ) : (
                     // If not logged in: Show login button
@@ -51,4 +56,3 @@ function Header() {
 }
 
 export default Header;
-
