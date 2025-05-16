@@ -4,6 +4,8 @@
  import daalbhat from './images/daalbhat.jpg';
  import momomaking from './images/momomaking.jpg';
  import newaricuisine from './images/newaricuisine.jpg';
+ import Header from '../components/header'; 
+ import Footer from '../components/footer';
 
  function FoodCategoryPage() {
   const [foodPosts, setFoodPosts] = useState([]);
@@ -50,6 +52,8 @@
   }
 
   return (
+   <>
+   <Header />
    <div className="blog-post-list-container">
     <h1>Explore Food and Culture in Nepal</h1>
     <div className="blog-post-grid">
@@ -82,6 +86,8 @@
      ))}
     </div>
    </div>
+   <Footer />
+   </>
   );
  }
 

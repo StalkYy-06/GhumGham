@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import './ProfileStyle.css';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const BASE_URL = 'http://localhost:5000';
 
@@ -74,41 +76,46 @@ function ProfilePage() {
     };
 
     return (
-        <div className="profile-page">
-            <h1>User Profile</h1>
-            {error && <p className="error">{error}</p>}
-            <div className="profile-details">
-                <div className="detail-item">
-                    <h2>Avatar</h2>
-                    {profile.avatar_url ? (
-                        <img
-                            src={profile.avatar_url}
-                            alt="User Avatar"
-                            className="avatar"
-                            loading="lazy"
-                        />
-                    ) : (
-                        <p>Not set</p>
-                    )}
-                </div>
-                <div className="detail-item">
-                    <h2>Name</h2>
-                    <p>{profile.name || "Not set"}</p>
-                </div>
-                <div className="detail-item">
-                    <h2>Email</h2>
-                    <p>{profile.email || "Not set"}</p>
-                </div>
-                <div className="detail-item">
-                    <h2>Bio</h2>
-                    <p>{profile.bio || "Not set"}</p>
-                </div>
-                <div className="detail-actions">
-                    <button onClick={() => navigate('/edit-profile')} className="edit-button">Edit Profile</button>
-                    <button onClick={handleDelete} className="delete-button">Delete Profile</button>
+        <div>
+            < Header />
+            <div className="profile-page">
+                <h1>User Profile</h1>
+                {error && <p className="error">{error}</p>}
+                <div className="profile-details">
+                    <div className="detail-item">
+                        <h2>Avatar</h2>
+                        {profile.avatar_url ? (
+                            <img
+                                src={profile.avatar_url}
+                                alt="User Avatar"
+                                className="avatar"
+                                loading="lazy"
+                            />
+                        ) : (
+                            <p>Not set</p>
+                        )}
+                    </div>
+                    <div className="detail-item">
+                        <h2>Name</h2>
+                        <p>{profile.name || "Not set"}</p>
+                    </div>
+                    <div className="detail-item">
+                        <h2>Email</h2>
+                        <p>{profile.email || "Not set"}</p>
+                    </div>
+                    <div className="detail-item">
+                        <h2>Bio</h2>
+                        <p>{profile.bio || "Not set"}</p>
+                    </div>
+                    <div className="detail-actions">
+                        <button onClick={() => navigate('/edit-profile')} className="edit-button">Edit Profile</button>
+                        <button onClick={handleDelete} className="delete-button">Delete Profile</button>
+                    </div>
                 </div>
             </div>
+            <Footer />
         </div>
+
     );
 }
 

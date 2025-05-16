@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
  import everestregion from './images/everestregion.jpg';
  import bardianationalpark from './images/bardianationalpark.jpg';
  import tranquilboating from './images/tranquilboating.jpg';
+ import Header from '../components/header'; 
+ import Footer from '../components/footer';
 
  function NatureCategoryPage() {
   const [naturePosts, setNaturePosts] = useState([]);
@@ -50,6 +52,8 @@ import React, { useState, useEffect } from 'react';
   }
 
   return (
+    <>
+    <Header />
    <div className="blog-post-list-container">
     <h1>Explore Nature Escapes in Nepal</h1>
     <div className="blog-post-grid">
@@ -82,6 +86,8 @@ import React, { useState, useEffect } from 'react';
      ))}
     </div>
    </div>
+   <Footer />
+   </>
   );
  }
 

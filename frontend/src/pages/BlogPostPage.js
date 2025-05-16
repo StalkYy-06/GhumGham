@@ -44,7 +44,8 @@
  import foldingmomo from './images/foldingmomo.jpeg';
  import cookingnewaridishes from './images/cookingnewaridishes.jpeg';
  import newariplatter from './images/newariplatter.jpg';
- 
+ import Header from '../components/header'; 
+ import Footer from '../components/footer';
  
  
  function BlogPostPage() {
@@ -480,6 +481,8 @@
   }
 
   return (
+    <>
+    <Header />
     <div className="blog-post-page">
       <div className="post-header">
         <h1>{post.title}</h1>
@@ -536,6 +539,8 @@
         <span>{post.title}</span>
       </div>
     </div>
+    <Footer />
+    </>  
   );
 };
 
