@@ -1,0 +1,275 @@
+/* Destination page container */
+.destination-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  font-family: "Georgia", serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  color: #2c3e50;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  margin: 1.5rem auto;
+}
+
+.edit-button {
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+  align-self: flex-end;
+}
+
+.edit-button:hover {
+  background: linear-gradient(145deg, #34495e, #2c3e50);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+/* Hero section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.destination-page:hover .hero-image {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  color: #ffffff;
+}
+
+.destination-name_2 {
+  font-size: 3.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+/* Content section */
+.content-section {
+  padding: 3rem 4rem;
+  background: #ffffff;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Description container */
+.description-container {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5em;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.description-long {
+  font-size: 1.2em;
+  color: #34495e;
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: rgba(245, 247, 250, 0.8);
+  border-radius: 15px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Details container */
+.details-container {
+  margin-bottom: 3rem;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-item {
+  font-size: 1.1em;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.detail-item strong {
+  color: #000;
+  margin-right: 0.5rem;
+}
+
+/* Map container */
+.map-container {
+  margin-bottom: 3rem;
+}
+
+.map-container .leaflet-container {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Book button */
+.book-button {
+  background: linear-gradient(145deg, #d32f2f, #e74c3c);
+  color: #ffffff;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin: 2rem auto;
+}
+
+.book-button:hover {
+  background: linear-gradient(145deg, #e74c3c, #d32f2f);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(211, 47, 47, 0.4);
+}
+
+/* Loading and Error styles */
+.loading,
+.error {
+  text-align: center;
+  padding: 4rem;
+  color: #d32f2f;
+  font-size: 2em;
+  font-weight: 700;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .destination-page {
+    width: 95%;
+    margin: 2rem auto;
+  }
+
+  .hero-section {
+    height: 350px;
+  }
+
+  .destination-name {
+    font-size: 2.5em;
+  }
+
+  .content-section {
+    padding: 2rem 3rem;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .description-long {
+    font-size: 1.1em;
+    max-height: 300px;
+    padding: 1rem;
+  }
+
+  .detail-item {
+    font-size: 1em;
+  }
+
+  .map-container .leaflet-container {
+    height: 300px;
+  }
+
+  .book-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 250px;
+  }
+
+  .destination-name {
+    font-size: 2em;
+  }
+
+  .content-section {
+    padding: 1.5rem 2rem;
+  }
+
+  .section-title {
+    font-size: 1.7em;
+  }
+
+  .description-long {
+    font-size: 1em;
+    max-height: 250px;
+    padding: 0.8rem;
+  }
+
+  .detail-item {
+    font-size: 0.95em;
+  }
+
+  .map-container .leaflet-container {
+    height: 250px;
+  }
+
+  .book-button {
+    padding: 0.9rem 2rem;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .destination-name_2 {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 480px) {
+  .destination-name_2 {
+    font-size: 2em;
+  }
+}

@@ -1,45 +1,141 @@
-/* Container for the entire itinerary page */
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+/* Background for Itinerary Page 1 */
+body.itinerary-page-1::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://via.placeholder.com/1920x1080/FF0000?Text=Muktinath+BG'); /* Replace with actual background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.3;
+    z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+body.itinerary-page-1::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Container */
 .itinerary-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1ecf4;
 }
 
-/* Title for each itinerary page */
+/* Title */
 .itinerary-title {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a2b4c;
+    font-weight: bold;
 }
 
-/* Individual day card styling */
+/* Header Info */
+.itinerary-header-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.itinerary-header-details div {
+    margin: 5px 0;
+}
+
+/* Daily itinerary section */
 .itinerary-day {
-  background-color: #f1f8ff;
-  border-left: 6px solid #0077cc;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #0077b6;
+    flex-wrap: wrap;
 }
 
-/* Day title (e.g., Day 1: Travel to Pokhara) */
+/* Day image */
+.day-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+/* Day details */
+.day-details {
+    flex: 1;
+    min-width: 250px;
+}
+
 .day-heading {
-  font-size: 1.4rem;
-  color: #003366;
-  margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: #023e8a;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
 }
 
-/* List of activities per day */
-.activity-list {
-  list-style-type: disc;
-  padding-left: 20px;
+.day-details p {
+    margin: 6px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
 }
 
-/* Each activity item */
-.activity-item {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 6px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .itinerary-day {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .day-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .day-details {
+        margin-top: 15px;
+    }
+
+    .itinerary-header-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

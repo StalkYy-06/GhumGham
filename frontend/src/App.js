@@ -1,26 +1,33 @@
 import React from 'react';
- import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
- import Login from './pages/Login';
- import Register from './pages/Register';
- import Homepage from './pages/Homepage';
- import ForgotPassword from './pages/forget-password';
- import ResetPassword from './pages/reset-password';
- import { AuthProvider } from './context/AuthContext';
- import ProfilePage from './pages/ProfilePage';
- import ItineraryPage1 from './components/ItineraryPage1';
- import ItineraryPage2 from './components/ItineraryPage2';
- import ItineraryPage3 from './components/ItineraryPage3';
- import GuidesPage from './pages/GuidesPage';
- import GuideDetailsPage from './pages/GuideDetailsPage';
- import EditProfilePage from './pages/editProfile';
- import About from './pages/About';
- import BlogCategoryPage from './pages/BlogCategoryPage';
- import AdventureCategoryPage from './pages/AdventureCategoryPage';
- import FoodCategoryPage from './pages/FoodCategoryPage';
- import NatureCategoryPage from './pages/NatureCategoryPage';
- import BlogPostPage from './pages/BlogPostPage'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Homepage from './pages/Homepage';
+import ForgotPassword from './pages/forget-password';
+import ResetPassword from './pages/reset-password';
+import { AuthProvider } from './context/AuthContext';
+import ProfilePage from './pages/ProfilePage';
+import ItineraryPage1 from './pages/ItineraryPage1';
+import ItineraryPage2 from './pages/ItineraryPage2';
+import ItineraryPage3 from './pages/ItineraryPage3';
+import GuidesPage from './pages/GuidesPage';
+import GuideDetailsPage from './pages/GuideDetailsPage';
+import EditProfilePage from './pages/editProfile';
+import About from './pages/About';
+import BlogCategoryPage from './pages/BlogCategoryPage';
+import AdventureCategoryPage from './pages/AdventureCategoryPage';
+import FoodCategoryPage from './pages/FoodCategoryPage';
+import NatureCategoryPage from './pages/NatureCategoryPage';
+import BlogPostPage from './pages/BlogPostPage';
+import CommentSection from './components/commentSection';
+import DestinationsList from './pages/destinationsList';
+import Destinations from './pages/destinations';
+import EditDestinations from './pages/editDestinations';
+import AddDestinations from './pages/addDestinations';
+import AccountSettings from './pages/AccountSettings';
+import Booking from './pages/bookings';
 
- function App() {
+function App() {
   return (
     <AuthProvider>
       <Router>
@@ -44,10 +51,17 @@ import React from 'react';
           <Route path="/category/food" element={<FoodCategoryPage />} /> {/* Food post previews */}
           <Route path="/category/nature" element={<NatureCategoryPage />} /> {/* Nature post previews */}
           <Route path="/blog/:slug" element={<BlogPostPage />} /> {/* Route for individual blog posts */}
+          <Route path="/commentSection" element={<CommentSection />} />
+          <Route path="/destinations" element={<DestinationsList />} />
+          <Route path="/destinations/:id" element={< Destinations />} />
+          <Route path="/editDestinations/:id" element={< EditDestinations />} />
+          <Route path="/addDestinations" element={< AddDestinations />} />
+          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/bookings" element={<Booking />} />
         </Routes>
       </Router>
     </AuthProvider>
   );
- }
+}
 
- export default App;
+export default App;

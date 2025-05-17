@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../config/db");
 const multer = require('multer');
 const path = require('path');
+const bcrypt = require("bcrypt");
 
 // Promise-based query helper
 const query = async (sql, params) => {
@@ -23,10 +24,11 @@ const isAuthenticated = (req, res, next) => {
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 router.get("/", async (req, res) => {
     try {
-        const results = await query("SELECT id, name, email FROM users");
+        const results = await query("SELECT id, name, email ,role FROM users");
         res.json({ user: results });
     } catch (err) {
         console.error("Error fetching users:", err);
@@ -38,7 +40,7 @@ router.get("/profile", isAuthenticated, async (req, res) => {
     try {
         const userId = req.session.user.id;
         const results = await query(
-            "SELECT id, name, email, bio, avatar_url FROM users WHERE id = ?",
+            "SELECT id, name, email, bio, avatar_url, role FROM users WHERE id = ?",
             [userId]
         );
 
@@ -71,8 +73,48 @@ router.put("/update", isAuthenticated, async (req, res) => {
     const { name, email, bio } = req.body;
     const userId = req.session.user.id;
 
-    if (!name || !email) {
+    if (!name) {
         return res.status(400).json({ error: "Name and email are required" });
+    }
+
+    const connection = await db.getConnection();
+    try {
+        await connection.beginTransaction();
+
+        await connection.query(
+            "UPDATE users SET name = ?, bio = ? WHERE id = ?",
+            [name, bio || null, userId]
+        );
+
+        req.session.user = {
+            ...req.session.user,
+            name,
+        };
+
+        await connection.commit();
+        res.json({
+            message: "Profile updated successfully",
+            user: {
+                id: userId,
+                name,
+                bio: bio || null
+            }
+        });
+    } catch (error) {
+        await connection.rollback();
+        console.error("Profile update error:", error);
+        res.status(500).json({ error: "Server error" });
+    } finally {
+        connection.release();
+    }
+});
+
+router.put("/update-email", isAuthenticated, async (req, res) => {
+    const { email } = req.body;
+    const userId = req.session.user.id;
+
+    if (!email) {
+        return res.status(400).json({ error: "Email is required" });
     }
 
     if (!emailRegex.test(email)) {
@@ -91,29 +133,71 @@ router.put("/update", isAuthenticated, async (req, res) => {
         }
 
         await connection.query(
-            "UPDATE users SET name = ?, email = ?, bio = ? WHERE id = ?",
-            [name, email, bio || null, userId]
+            "UPDATE users SET email = ? WHERE id = ?",
+            [email, userId]
         );
 
         req.session.user = {
             ...req.session.user,
-            name,
             email
         };
 
         await connection.commit();
-        res.json({
-            message: "Profile updated successfully",
-            user: {
-                id: userId,
-                name,
-                email,
-                bio: bio || null
-            }
-        });
-    } catch (error) {
+        res.json({ message: "Email updated successfully" });
+    } catch (err) {
         await connection.rollback();
-        console.error("Profile update error:", error);
+        console.error("Email update error:", err);
+        res.status(500).json({ error: "Server error" });
+    } finally {
+        connection.release();
+    }
+});
+
+router.put("/change-password", isAuthenticated, async (req, res) => {
+    const { currentPassword, newPassword } = req.body;
+    const userId = req.session.user.id;
+
+    if (!currentPassword || !newPassword) {
+        return res.status(400).json({ error: "Current and new passwords are required" });
+    }
+
+    if (newPassword.length < 8) {
+        return res.status(400).json({ error: "New password must be at least 8 characters long" });
+    }
+
+    if (!passwordRegex.test(newPassword)) {
+        return res.status(400).json({ error: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&)" });
+    }
+
+    const connection = await db.getConnection();
+    try {
+        await connection.beginTransaction();
+
+        const user = await query("SELECT password FROM users WHERE id = ?", [userId]);
+        if (user.length === 0) {
+            await connection.rollback();
+            connection.release();
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const isMatch = await bcrypt.compare(currentPassword, user[0].password);
+        if (!isMatch) {
+            await connection.rollback();
+            connection.release();
+            return res.status(401).json({ error: "Incorrect current password" });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        await connection.query(
+            "UPDATE users SET password = ? WHERE id = ?",
+            [hashedPassword, userId]
+        );
+
+        await connection.commit();
+        res.json({ message: "Password changed successfully" });
+    } catch (err) {
+        await connection.rollback();
+        console.error("Password change error:", err);
         res.status(500).json({ error: "Server error" });
     } finally {
         connection.release();

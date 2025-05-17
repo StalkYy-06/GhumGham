@@ -116,7 +116,8 @@ router.post("/login", async (req, res) => {
             name: user.name,
             email: user.email,
             bio: user.bio,
-            avatar_url: user.avatar_url
+            avatar_url: user.avatar_url,
+            role: user.role
         };
 
         // Store user in session
@@ -237,6 +238,23 @@ router.post("/reset-password", async (req, res) => {
         res.status(500).json({ error: "Server error" });
     } finally {
         connection.release();
+    }
+});
+
+router.get('/user', async (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'Not authenticated' });
+    }
+
+    try {
+        const user = req.session.user;
+        res.json({
+            id: user.id,
+            role: user.role
+        });
+    } catch (err) {
+        console.error('Error fetching user data:', err);
+        res.status(500).json({ error: 'Server error' });
     }
 });
 
