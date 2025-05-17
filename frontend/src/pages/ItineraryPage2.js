@@ -1,87 +1,92 @@
-// ItineraryPage2.js
-import React from 'react';
-import './Itenarypage.css';
-import CommentSection from '../components/commentSection';
+import React, { useEffect } from 'react';
+import '../components/Itenarypage.css';
+
+import day1 from '../pages/images/lukla.jpg';
+import day2 from '../pages/images/namche.jpg';
+import day3 from '../pages/images/AcclimatizationinNamche.jpg';
+import day4to7 from '../pages/images/trek.jpeg';
+import day8 from '../pages/images/basecamp.jpeg';
+import day9to12 from '../pages/images/returntrek.jpeg';
+
+import CommentSection from '../components/commentSection.js';
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
 
-const itineraryData = [
-  {
-    day: "Day 1",
-    title: "Fly to Lukla, Trek to Phakding",
-    activities: [
-      "Flight from Kathmandu to Lukla (2,840m)",
-      "Trek to Phakding (2,610m)",
-    ],
-  },
-  {
-    day: "Day 2",
-    title: "Trek to Namche Bazaar",
-    activities: [
-      "Trek through forest trails and suspension bridges",
-      "Arrive in Namche Bazaar (3,440m)",
-    ],
-  },
-  {
-    day: "Day 3",
-    title: "Acclimatization in Namche",
-    activities: [
-      "Short hike to Everest View Hotel",
-      "Explore Namche Bazaar",
-    ],
-  },
-  {
-    day: "Day 4–7",
-    title: "Trek Towards Base Camp",
-    activities: [
-      "Trek to Tengboche, Dingboche, Lobuche",
-      "Visit monasteries and glaciers",
-    ],
-  },
-  {
-    day: "Day 8",
-    title: "Reach Everest Base Camp",
-    activities: [
-      "Early morning trek to EBC (5,364m)",
-      "View Khumbu Icefall",
-      "Return to Gorakshep",
-    ],
-  },
-  {
-    day: "Day 9–12",
-    title: "Return Journey",
-    activities: [
-      "Trek back to Lukla",
-      "Fly to Kathmandu",
-      "Celebration dinner",
-    ],
-  },
-];
-
 function ItineraryPage2() {
+    const itineraryId = 'Iti-2';
+    useEffect(() => {
+        document.body.className = 'itinerary-page-2';
+        return () => {
+            document.body.className = '';
+        };
+    }, []);
 
-  const itineraryId = 'Iti-2';
+    return (
+        <>
+            <Header />
+            <div className="itinerary-container">
+                <h1 className="itinerary-title">TRIP ITINERARY: EVEREST BASE CAMP TREK</h1>
+                <div className="itinerary-header-details">
+                    <div><strong>Destination:</strong> Everest Base Camp</div>
+                    <div><strong>Duration:</strong> 12 Days</div>
+                </div>
 
-  return (
-    <div>
-      <Header />
-      <div className="itinerary-container">
-        <h1 className="itinerary-title">Itinerary Page 2: Everest Base Camp Trek</h1>
-        {itineraryData.map((day, index) => (
-          <div key={index} className="itinerary-day">
-            <h2 className="day-heading">{day.day}: {day.title}</h2>
-            <ul className="activity-list">
-              {day.activities.map((activity, idx) => (
-                <li key={idx} className="activity-item">{activity}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <CommentSection itineraryId={itineraryId} />
-      </div>
-      <Footer />
-    </div>
-  );
+                <div className="itinerary-day">
+                    <img src={day1} alt="Day 1 - Lukla and Phakding" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 1: Fly to Lukla, Trek to Phakding</h2>
+                        <p><strong>Morning:</strong> Fly to Lukla, enjoy the mountain views.</p>
+                        <p><strong>Afternoon:</strong> Trek to Phakding along the Dudh Koshi River.</p>
+                    </div>
+                </div>
+
+                <div className="itinerary-day">
+                    <img src={day2} alt="Day 2 - Namche Bazaar" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 2: Trek to Namche Bazaar</h2>
+                        <p><strong>Morning:</strong> Ascend through pine forests and suspension bridges.</p>
+                        <p><strong>Afternoon:</strong> Reach Namche Bazaar and explore local market.</p>
+                    </div>
+                </div>
+
+                <div className="itinerary-day">
+                    <img src={day3} alt="Day 3 - Acclimatization at Namche" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 3: Acclimatization at Namche</h2>
+                        <p><strong>All Day:</strong> Hike to Everest View Hotel or nearby ridges for panoramic views. Rest and prepare for altitude gain.</p>
+                    </div>
+                </div>
+
+                <div className="itinerary-day">
+                    <img src={day4to7} alt="Day 4 to 7 - Tengboche to Lobuche" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 4 to 7: Tengboche to Lobuche</h2>
+                        <p><strong>Morning & Afternoon:</strong> Trek through Tengboche (famous monastery), Dingboche (acclimatization), and continue toward Lobuche, experiencing increasing altitudes and breathtaking landscapes.</p>
+                    </div>
+                </div>
+
+                <div className="itinerary-day">
+                    <img src={day8} alt="Day 8 - Everest Base Camp" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 8: Everest Base Camp</h2>
+                        <p><strong>Morning:</strong> Trek from Gorak Shep to Everest Base Camp.</p>
+                        <p><strong>Afternoon:</strong> Enjoy views of the Khumbu Icefall and surrounding peaks.</p>
+                    </div>
+                </div>
+
+                <div className="itinerary-day">
+                    <img src={day9to12} alt="Day 9 to 12 - Return Trek" className="day-image" />
+                    <div className="day-details">
+                        <h2 className="day-heading">Day 9 to 12: Return to Lukla</h2>
+                        <p><strong>Days 9–11:</strong> Trek back through Pheriche, Tengboche, Namche to Lukla.</p>
+                        <p><strong>Day 12:</strong> Fly back to Kathmandu.</p>
+                    </div>
+                </div>
+                <CommentSection itineraryId={itineraryId} />
+            </div>
+            <Footer />
+        </>
+    );
 }
 
 export default ItineraryPage2;

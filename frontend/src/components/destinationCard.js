@@ -7,8 +7,6 @@ function DestinationCard({ destination, onDelete, isAdmin }) {
 
     const navigate = useNavigate();
 
-
-
     const handleCardClick = () => {
         navigate(`/destinations/${destination.destinations_id}`);
     };
