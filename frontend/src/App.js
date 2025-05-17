@@ -11,6 +11,7 @@ import GuidesPage from './pages/GuidesPage';
 import GuideDetailsPage from './pages/GuideDetailsPage'; 
 import EditProfilePage from './pages/editProfile';
 
+
 function App() {
   return (
     <AuthProvider>

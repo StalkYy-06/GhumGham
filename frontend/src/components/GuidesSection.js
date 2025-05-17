@@ -15,7 +15,7 @@ function GuidesSection() {
       description: 'Experienced trekking guide in the Annapurna region.',
       image: Guide1Image,
       phone: '+977 9851098234',
-      expertise: 'Trekking, Mountaineering',
+      expertise: 'Trekking, Mountaineering, Regional Expert',
       rating: 4.8,
     },
     {
