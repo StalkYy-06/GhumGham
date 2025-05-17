@@ -3,16 +3,23 @@
   border-radius: 15px;
   width: 250px;
   padding: 20px;
-
-  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
 }
 
 .guide-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style for the link that will wrap the entire card */
+.guide-card-link {
+  text-decoration: none; /* Remove default link underline */
+  color: inherit; /* Inherit text color from the card */
+  display: block; /* Make the link occupy the entire card space */
+  height: 100%; /* Ensure the link covers the full height */
 }
 
 .guide-img {
@@ -54,15 +61,16 @@
   margin-bottom: 10px;
 }
 
-.guide-name-clickable {
+/* We don't need these styles anymore as the entire card is clickable */
+/* .guide-name-clickable {
   cursor: pointer;
-  color: navy; 
-  text-decoration: underline; 
+  color: navy;
+  text-decoration: underline;
 }
 
 .guide-name-clickable:hover {
   opacity: 0.8;
-}
+} */
 
 .guide-short-description {
   margin-top: 10px;
