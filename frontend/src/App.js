@@ -18,12 +18,16 @@ import BlogCategoryPage from './pages/BlogCategoryPage';
 import AdventureCategoryPage from './pages/AdventureCategoryPage';
 import FoodCategoryPage from './pages/FoodCategoryPage';
 import NatureCategoryPage from './pages/NatureCategoryPage';
-import BlogPostPage from './pages/BlogPostPage'; 
+import BlogPostPage from './pages/BlogPostPage';
 import CommentSection from './components/commentSection';
+import DestinationsList from './pages/destinationsList';
+import Destinations from './pages/destinations';
+import EditDestinations from './pages/editDestinations';
+import AddDestinations from './pages/addDestinations';
+import AccountSettings from './pages/AccountSettings';
+import Booking from './pages/bookings';
 
-
-
- function App() {
+function App() {
   return (
     <AuthProvider>
       <Router>
@@ -48,7 +52,12 @@ import CommentSection from './components/commentSection';
           <Route path="/category/nature" element={<NatureCategoryPage />} /> {/* Nature post previews */}
           <Route path="/blog/:slug" element={<BlogPostPage />} /> {/* Route for individual blog posts */}
           <Route path="/commentSection" element={<CommentSection />} />
-
+          <Route path="/destinations" element={<DestinationsList />} />
+          <Route path="/destinations/:id" element={< Destinations />} />
+          <Route path="/editDestinations/:id" element={< EditDestinations />} />
+          <Route path="/addDestinations" element={< AddDestinations />} />
+          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/bookings" element={<Booking />} />
         </Routes>
       </Router>
     </AuthProvider>

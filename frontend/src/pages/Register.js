@@ -60,7 +60,7 @@ const Register = () => {
         else if (data.error.includes('Password')) {
           setUserError(true);
         }
-        throw new Error(data.error || 'Registration failed');
+        setError(data.error || "Registration failed.")
       }
 
       login({ name, email });
@@ -133,7 +133,7 @@ const Register = () => {
               />
             )}
           </div>
-          {error && <p className="error">{error}</p>}
+          {error && <p className="error_l">{error}</p>}
           <button type="submit" className="primary-btn">Register</button>
           <div className="divider">
             <span>or</span>

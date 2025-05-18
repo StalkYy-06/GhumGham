@@ -1,69 +1,77 @@
-// ItineraryPage1.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../components/Itenarypage.css';
 
-const itineraryData = [
-  {
-    day: "Day 1",
-    title: "Travel to Pokhara",
-    activities: [
-      "Drive or flight from Kathmandu to Pokhara",
-      "Check-in at hotel near Phewa Lake",
-      "Evening lakeside walk and dinner",
-    ],
-  },
-  {
-    day: "Day 2",
-    title: "Journey to Jomsom",
-    activities: [
-      "Morning flight to Jomsom",
-      "Explore local market",
-    ],
-  },
-  {
-    day: "Day 3",
-    title: "Visit Muktinath Temple",
-    activities: [
-      "Drive or hike to Muktinath Temple",
-      "Holy bath at 108 water sprouts",
-      "Return to Jomsom",
-    ],
-  },
-  {
-    day: "Day 4",
-    title: "Back to Pokhara",
-    activities: [
-      "Fly to Pokhara from Jomsom",
-      "Leisure time at Lakeside",
-    ],
-  },
-  {
-    day: "Day 5",
-    title: "Return to Kathmandu",
-    activities: [
-      "Drive or flight to Kathmandu",
-      "Hotel check-in",
-      "Farewell dinner",
-    ],
-  },
-];
+import day1 from '../pages/images/pokhara.jpeg';
+import day2 from '../pages/images/Jomsom.jpg';
+import day3 from '../pages/images/muktinath.jpg';
+import day4 from '../pages/images/ReturntoPokhara.jpg';
+import day5 from '../pages/images/Returntokathmandu.jpg';
 
 function ItineraryPage1() {
-  return (
-    <div className="itinerary-container">
-      <h1 className="itinerary-title">Itinerary Page 1: Muktinath Temple Tour</h1>
-      {itineraryData.map((day, index) => (
-        <div key={index} className="itinerary-day">
-          <h2 className="day-heading">{day.day}: {day.title}</h2>
-          <ul className="activity-list">
-            {day.activities.map((activity, idx) => (
-              <li key={idx} className="activity-item">{activity}</li>
-            ))}
-          </ul>
+    useEffect(() => {
+        document.body.className = 'itinerary-page-1';
+        return () => {
+            document.body.className = '';
+        };
+    }, []);
+
+    return (
+        <div className="itinerary-container">
+            <h1 className="itinerary-title">TRIP ITINERARY: MUKTINATH TEMPLE</h1>
+            <div className="itinerary-header-details">
+                <div><strong>Destination:</strong> Muktinath Temple</div>
+                <div><strong>Duration:</strong> 5 Days</div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day1} alt="Day 1 - Pokhara" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 1: Travel to Pokhara</h2>
+                    <p><strong>Morning:</strong> Depart from Kathmandu to Pokhara by drive or flight and enjoy scenic views along the way.</p>
+                    <p><strong>Afternoon:</strong> Check-in at a hotel near Phewa Lake.</p>
+                    <p><strong>Evening:</strong> Enjoy a lakeside walk and local dinner.</p>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day2} alt="Day 2 - Jomsom" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 2: Journey to Jomsom</h2>
+                    <p><strong>Morning:</strong> Morning flight to Jomsom.</p>
+                    <p><strong>Afternoon:</strong> Explore local market.</p>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day3} alt="Day 3 - Muktinath" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 3: Visit Muktinath Temple</h2>
+                    <p><strong>Morning:</strong> Drive or hike to Muktinath Temple.</p>
+                    <p><strong>Afternoon:</strong> Holy bath at 108 water sprouts.</p>
+                    <p><strong>Evening:</strong> Return to Jomsom.</p>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day4} alt="Day 4 - Back to Pokhara" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 4: Back to Pokhara</h2>
+                    <p><strong>Morning:</strong> Fly to Pokhara from Jomsom.</p>
+                    <p><strong>Afternoon:</strong> Leisure time at Lakeside.</p>
+                </div>
+            </div>
+
+            <div className="itinerary-day">
+                <img src={day5} alt="Day 5 - Return to Kathmandu" className="day-image" />
+                <div className="day-details">
+                    <h2 className="day-heading">Day 5: Return to Kathmandu</h2>
+                    <p><strong>Morning:</strong> Drive or flight to Kathmandu.</p>
+                    <p><strong>Afternoon:</strong> Hotel check-in.</p>
+                    <p><strong>Evening:</strong> Farewell dinner.</p>
+                </div>
+            </div>
         </div>
-      ))}
-    </div>
-  );
+    );
 }
 
 export default ItineraryPage1;

@@ -4,11 +4,12 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import Sidebar from '../components/Sidebar';
 
 const BASE_URL = 'http://localhost:5000';
 
 function ProfilePage() {
-    const { isAuthenticated, user, login } = useContext(AuthContext);
+    const { isAuthenticated, user, login, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const [profile, setProfile] = useState({
         name: "",
@@ -19,18 +20,16 @@ function ProfilePage() {
     const [error, setError] = useState('');
     const [preview, setPreview] = useState('');
 
-    // Redirect if not authenticated
-    useEffect(() => {
-        if (!isAuthenticated) {
-            navigate('/login');
-        }
-    }, [isAuthenticated, navigate]);
-
     // Fetch profile from backend on mount
     useEffect(() => {
         const fetchProfile = async () => {
+            if (!loading && !isAuthenticated) {
+                navigate('/login');
+                return;
+            }
+
             try {
-                const response = await fetch('http://localhost:5000/api/users/profile', {
+                const response = await fetch(`${BASE_URL}/api/users/profile`, {
                     credentials: 'include',
                 });
                 if (response.ok) {
@@ -48,74 +47,62 @@ function ProfilePage() {
                     login({ ...userData, avatar_url: fullAvatarURL });
                 } else {
                     setError('Failed to fetch profile');
+                    if (!loading) navigate('/login');
                 }
             } catch (err) {
                 setError('Server error');
                 console.error('Fetch profile failed:', err);
+                if (!loading) navigate('/login');
             }
         };
-        if (isAuthenticated) fetchProfile();
-    }, [isAuthenticated, login, navigate]);
+        fetchProfile();
+    }, [isAuthenticated, login, navigate, loading]);
 
-
-    // Delete profile
-    const handleDelete = async () => {
-        setError('');
-        try {
-            await fetch('http://localhost:5000/api/users/delete', {
-                method: 'DELETE',
-                credentials: 'include',
-            });
-            localStorage.removeItem('userProfile');
-            setProfile({ name: "", email: "", bio: "", avatar_url: "" });
-            navigate('/login');
-        } catch (err) {
-            setError('Failed to delete profile');
-            console.error('Delete profile failed:', err);
-        }
-    };
+    if (loading) {
+        return <div className="loading_p">Loading...</div>;
+    }
 
     return (
         <div>
-            < Header />
-            <div className="profile-page">
-                <h1>User Profile</h1>
-                {error && <p className="error">{error}</p>}
-                <div className="profile-details">
-                    <div className="detail-item">
-                        <h2>Avatar</h2>
-                        {profile.avatar_url ? (
-                            <img
-                                src={profile.avatar_url}
-                                alt="User Avatar"
-                                className="avatar"
-                                loading="lazy"
-                            />
-                        ) : (
-                            <p>Not set</p>
-                        )}
-                    </div>
-                    <div className="detail-item">
-                        <h2>Name</h2>
-                        <p>{profile.name || "Not set"}</p>
-                    </div>
-                    <div className="detail-item">
-                        <h2>Email</h2>
-                        <p>{profile.email || "Not set"}</p>
-                    </div>
-                    <div className="detail-item">
-                        <h2>Bio</h2>
-                        <p>{profile.bio || "Not set"}</p>
-                    </div>
-                    <div className="detail-actions">
-                        <button onClick={() => navigate('/edit-profile')} className="edit-button">Edit Profile</button>
-                        <button onClick={handleDelete} className="delete-button">Delete Profile</button>
+            <Header />
+            <div className="profile-container_p">
+                <Sidebar />
+                <div className="profile-content_p">
+                    <div className="profile-page_p">
+                        <h1>User Profile</h1>
+                        {error && <p className="error_p">{error}</p>}
+                        <div className="profile-details_p">
+                            <div className="detail-item_p">
+                                <h2>Avatar</h2>
+                                {profile.avatar_url ? (
+                                    <img
+                                        src={profile.avatar_url}
+                                        alt="User Avatar"
+                                        className="avatar_p"
+                                        loading="lazy"
+                                    />
+                                ) : (
+                                    <p>Not set</p>
+                                )}
+                            </div>
+                            <div className="detail-item_p">
+                                <h2>Name</h2>
+                                <p>{profile.name || "Not set"}</p>
+                            </div>
+                            <div className="detail-item_p">
+                                <h2>Email</h2>
+                                <p>{profile.email || "Not set"}</p>
+                            </div>
+                            <div className="detail-item_p">
+                                <h2>Bio</h2>
+                                <p>{profile.bio || "Not set"}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <Footer />
         </div>
-
     );
 }
 

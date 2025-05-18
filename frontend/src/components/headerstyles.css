@@ -76,22 +76,39 @@
 .profile-container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .profile-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #333;
-  font-size: 1.2em;
-  transition: color 0.3s ease;
+  background-color: #000000; /* Black background to match login button */
+  color: #ffffff; /* White text to match login button */
+  padding: 0.4rem 1rem; /* Adjusted padding for oval shape */
+  border-radius: 20px; /* Oval shape to match login button */
+  font-size: 1em; /* Consistent font size */
+  font-weight: 200;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .profile-link:hover {
-  color: #666;
+  background-color: #333333; /* Darker black on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
-.profile-icon {
-  display: inline-block;
+.avatar {
+  width: 32px; /* Slightly larger for visibility */
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.6rem;
+  border: none; /* Removed border to blend with button */
+}
+
+.username {
+  font-size: 1em;
+  font-weight: 200;
+  color: #ffffff;
 }
 
 /* ========== Responsive Design ========== */
@@ -124,8 +141,12 @@
   }
 
   .profile-container {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+  }
+
+  .profile-link {
+    padding: 0.5rem 1rem;
+    font-size: 1em;
   }
 }
 
@@ -142,5 +163,16 @@
 
   .logo-text {
     font-size: 0.7em;
+  }
+
+  .profile-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9em;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    margin-right: 0.4rem;
   }
 }

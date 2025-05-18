@@ -1,0 +1,253 @@
+/* Destination card container */
+.destination-card {
+  display: flex;
+  flex-direction: row;
+  width: 90%; /* Reduced width for compactness */
+  height: 280px; /* Kept height as is */
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  margin: 1.5rem auto; /* Centered with reduced vertical margin */
+  position: relative;
+}
+
+.destination-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Photo container */
+.photo-container {
+  width: 35%; /* Reduced photo width for compactness */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.destination-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px 0 0 15px;
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover .destination-photo {
+  transform: scale(1.05);
+}
+
+/* Photo overlay */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.1)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 0.75rem;
+}
+
+.photo-label {
+  background-color: #d32f2f;
+  color: #ffffff;
+  font-size: 0.8em;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+/* Destination content */
+.destination-content {
+  width: 65%; /* Adjusted to fill remaining space */
+  padding: 1.5rem; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Destination name */
+.destination-name {
+  font-size: 1.8em; /* Slightly reduced font size */
+  color: #d32f2f;
+  font-weight: 800;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+/* Short description */
+.description-short {
+  font-size: 0.95em; /* Slightly reduced font */
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 0.75rem; /* Reduced margin */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-style: italic;
+}
+
+/* Meta information */
+.destination-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Reduced gap */
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+.meta-item {
+  font-size: 0.85em; /* Smaller font */
+  color: #333;
+  background: linear-gradient(145deg, #f5f5f5, #ffffff);
+  padding: 0.4rem 0.8rem; /* Reduced padding */
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  text-transform: capitalize;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.meta-item:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+}
+
+/* View details button */
+.view-details-button {
+  background: linear-gradient(145deg, #000000, #222222);
+  color: #ffffff;
+  padding: 0.6rem 1.5rem; /* Reduced padding */
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95em; /* Smaller font */
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.view-details-button:hover {
+  background: linear-gradient(145deg, #333333, #555555);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(145deg, #d32f2f, #e74c3c);
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 10; /* Ensure button is above other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+  background: linear-gradient(145deg, #e74c3c, #d32f2f);
+  transform: translateY(-2px);
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .destination-card {
+    width: 95%; /* Slightly wider on smaller screens */
+    max-width: 700px;
+    height: 240px;
+    margin: 1rem auto;
+  }
+
+  .destination-name {
+    font-size: 1.5em;
+  }
+
+  .description-short {
+    font-size: 0.9em;
+  }
+
+  .meta-item {
+    font-size: 0.8em;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .view-details-button {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9em;
+  }
+
+  .photo-label {
+    font-size: 0.75em;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .destination-card {
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+  }
+
+  .photo-container {
+    width: 100%;
+    height: 50%;
+  }
+
+  .destination-photo {
+    border-radius: 15px 15px 0 0;
+  }
+
+  .photo-overlay {
+    border-radius: 15px 15px 0 0;
+    padding: 0.5rem;
+  }
+
+  .destination-content {
+    width: 100%;
+    height: 50%;
+    padding: 1rem;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .destination-name {
+    font-size: 1.4em;
+  }
+
+  .description-short {
+    font-size: 0.85em;
+  }
+
+  .meta-item {
+    font-size: 0.75em;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .view-details-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.85em;
+  }
+
+  .photo-label {
+    font-size: 0.7em;
+  }
+}
