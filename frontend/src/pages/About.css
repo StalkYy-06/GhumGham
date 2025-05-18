@@ -12,14 +12,14 @@
   border-radius: 12px;
   text-align: center;
   margin: 0;
-  display: flex; /* Added for logo and text centering */
+  display: flex; 
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .overlay h1 {
-  font-size: 4rem; /* Updated font-size */
+  font-size: 4rem; 
   margin-bottom: 10px;
 }
 

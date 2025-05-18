@@ -1,8 +1,8 @@
 import React from 'react';
 import './About.css';
-import Header from '../components/header'; // Assuming these are in sibling directories
-import Footer from '../components/footer'; // and correctly implemented
-import herosection from './images/herosection.avif'; // Import the hero image -  Check the path
+import Header from '../components/header'; 
+import Footer from '../components/footer'; 
+import herosection from './images/herosection.avif'; 
 import guide1 from './images/guide1.jpg';
 import guide2 from './images/guide2.jpg';
 import team1 from './images/team1.jpg';
@@ -22,7 +22,7 @@ function About() {
       <div
         className="about-hero"
         style={{
-          backgroundImage: `url(${herosection})`, //  Use a placeholder or correct relative path.
+          backgroundImage: `url(${herosection})`, 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '60vh',
