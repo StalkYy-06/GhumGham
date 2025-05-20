@@ -27,6 +27,7 @@ import AddDestinations from './pages/addDestinations';
 import AccountSettings from './pages/AccountSettings';
 import Booking from './pages/bookings';
 
+
 function App() {
   return (
     <AuthProvider>

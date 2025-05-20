@@ -1,79 +1,61 @@
 .guide-card {
-  background: #f7f7f7;
-  border-radius: 15px;
-  width: 250px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; Remove this line */
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  max-width: 300px;
+  min-height: 420px;
+  transition: transform 0.2s;
 }
 
 .guide-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Style for the link that will wrap the entire card */
-.guide-card-link {
-  text-decoration: none; /* Remove default link underline */
-  color: inherit; /* Inherit text color from the card */
-  display: block; /* Make the link occupy the entire card space */
-  height: 100%; /* Ensure the link covers the full height */
+  transform: scale(1.02);
 }
 
 .guide-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: 8px;
 }
 
 .guide-card h3 {
+  margin: 10px 0 5px;
   font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #333;
+  text-align: center;
 }
 
-.guide-card p {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
+.guide-description-box {
+  min-height: 80px; /* Increased from 60px - adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.guide-phone {
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.guide-expertise {
-  font-size: 0.9rem;
-  color: #444;
-  margin-bottom: 5px;
-  font-style: italic;
-}
-
-.guide-rating {
+.guide-description {
+  margin: 4px 0;
+  text-align: center;
   font-size: 0.95rem;
-  color: gold;
-  margin-bottom: 10px;
+  min-height: 20px;
 }
 
-/* We don't need these styles anymore as the entire card is clickable */
-/* .guide-name-clickable {
-  cursor: pointer;
-  color: navy;
-  text-decoration: underline;
+.guide-phone,
+.guide-expertise,
+.guide-rating {
+  margin: 4px 0;
+  text-align: center;
+  font-size: 0.95rem;
+  min-height: 20px; /* Ensures even spacing */
 }
 
-.guide-name-clickable:hover {
-  opacity: 0.8;
-} */
-
-.guide-short-description {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #333;
+/* Responsive Design */
+@media (max-width: 600px) {
+  .guide-card {
+    max-width: 90%;
+    margin: 12px auto;
+  }
 }
