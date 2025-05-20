@@ -15,7 +15,7 @@ const ForgotPassword = () => {
         setEmailError(false);
 
         try {
-            const response = await fetch('http://localhost:5000/api/users/forgot-password', {
+            const response = await fetch('http://localhost:5000/api/auth/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,13 +31,13 @@ const ForgotPassword = () => {
             const data = await response.json();
 
             if (!response.ok) {
-                if (data.error === 'Invalid email format' || data.error === 'No user found with this email') {
+                if (data.error === 'Invalid email format' || data.error === 'Email is required') {
                     setEmailError(true);
                 }
                 throw new Error(data.error || 'Failed to send reset email');
             }
 
-            setSuccess('Password reset email sent');
+            setSuccess(data.message); // Handles both "Password reset email sent" and generic message
         } catch (err) {
             setError(err.message);
             console.error('Forgot password error:', err);
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input
-                            type="text"
+                            type="email"
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
                         <img src="mail.png" alt="mail" className="mail" />
                     </div>
                     {success && <p className="success">{success}</p>}
-                    {error && <p className="error">{error}</p>}
+                    {error && <p className="error_l">{error}</p>}
                     <button type="submit" className="primary-btn">Send Reset Link</button>
                 </form>
                 <p>

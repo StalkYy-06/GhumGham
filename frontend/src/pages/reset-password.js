@@ -37,7 +37,7 @@ const ResetPassword = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/users/reset-password', {
+            const response = await fetch('http://localhost:5000/api/auth/reset-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ const ResetPassword = () => {
                             />
                         )}
                     </div>
-                    {error && <p className="error">{error}</p>}
+                    {error && <p className="error_l">{error}</p>}
                     {success && <p className="success">{success}</p>}
                     <button type="submit" className="primary-btn">Reset Password</button>
                 </form>
