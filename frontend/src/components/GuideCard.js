@@ -14,7 +14,7 @@ function GuideCard({ guide }) {
 
         <h3 className="guide-name">{guide.name}</h3>
 
-        <div className="guide-info-wrapper"> {/* New wrapper for text info */}
+        <div className="guide-info-wrapper"> 
           <div className="guide-description-box">
             {guide.description && <p className="guide-description">{guide.description}</p>}
           </div>
